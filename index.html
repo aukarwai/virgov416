@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-<title>VIRGO V41.8 | Mobile Pull-to-Refresh</title>
+<title>VIRGO V41.10 | Evidence Identity Seal</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
 <script>
 /* V41.6 refresh-position governor: disable browser scroll restoration and force a clean top position on every load/refresh. */
@@ -134,7 +134,7 @@ body{
 }
 
 
-/* V41.8 mobile refresh compatibility.
+/* V41.10 evidence identity seal; preserves V41.9 mobile refresh compatibility.
    Allow native vertical pull-to-refresh at the top while retaining the dark
    root canvas, minimal bottom inset, and horizontal anti-swim lock. */
 html{
@@ -163,7 +163,7 @@ body{
 </head>
 <body><div class="wrap">
 <div class="hero">
-<h1>VIRGO V41.9 DUAL-PATH REGIME LIFECYCLE ENGINE</h1>
+<h1>VIRGO V41.10 DUAL-PATH REGIME LIFECYCLE ENGINE</h1>
 <div class="sub">Purpose: preserve V40’s proven early timing while separating regime-aligned continuation from reversal formation. V41 adds BULLISH / BEARISH / TRANSITION / BALANCED governance, CONTINUATION EARLY STRIKE, EXHAUSTION WATCH → TURN ALERT, dual-horizon outcomes, opportunity-family clustering, and precise age-versus-price execution warnings.</div>
 <div class="price"><div class="px" id="price">—</div><span class="pill" id="feedState">CONNECTING</span></div>
 <div class="small liveMeta" id="lastSeen">Waiting for live feed…</div>
@@ -190,7 +190,7 @@ body{
 <div class="section"><div class="sectionTitle">Top-20 Suspect Board</div><table class="table"><thead><tr><th>#</th><th>Dir</th><th>Age</th><th>Path / Stage</th><th>Evidence</th></tr></thead><tbody id="suspectBody"><tr><td colspan="5" class="small">No suspects yet.</td></tr></tbody></table></div>
 <div class="section"><div class="sectionTitle">Non-Survivor Taxonomy Counters</div><div class="grid"><div class="card"><h2>Duplicate Fragment</h2><div class="big" id="cDup">0</div></div><div class="card"><h2>No Runway</h2><div class="big" id="cRunway">0</div></div><div class="card"><h2>Late Exhaustion</h2><div class="big" id="cLate">0</div></div><div class="card"><h2>Depth / Flow Bait</h2><div class="big" id="cBait">0</div></div><div class="card"><h2>Stale Survivor Kill</h2><div class="big" id="cStale">0</div><div class="small">Age &gt; 79m cannot execute.</div></div></div></div>
 <div class="section"><div class="sectionTitle">Evidence Log</div><div class="log" id="log"></div></div>
-<div class="footer">VIRGO V41.8 is a live lifecycle evidence harness with persistent candle continuity, not a statistically promoted execution engine. CONTINUATION EARLY STRIKE and TURN ALERT are separate early pathways. FULL EXECUTE remains the strict confirmation. Family clustering prevents multiple entries inside one broad trend from masquerading as independent survivors.</div>
+<div class="footer">VIRGO V41.10 is a live lifecycle evidence harness with persistent candle continuity, not a statistically promoted execution engine. CONTINUATION EARLY STRIKE and TURN ALERT are separate early pathways. FULL EXECUTE remains the strict confirmation. Family clustering prevents multiple entries inside one broad trend from masquerading as independent survivors.</div>
 </div>
 
 <script>
@@ -515,7 +515,7 @@ function connectSiphon(){
   ws.onerror=function(){try{ws.close()}catch(e){}};
 }
 setInterval(()=>{const fresh=Date.now()-SIPH.lastTradeAt<20000; const b=SIPH.buckets.get(minuteKey(Date.now())); const extra=fresh?` · siphon ${b?b.n:0}tr`:''; if(lastLive&&Date.now()-lastLive<20000)setStatus((liveSource||'LIVE')+extra);},5000);
-function startAll(){setStatus('CONNECTING'); log('VIRGO V41.8 dual-path regime lifecycle + candle continuity + native pull-to-refresh start',{target:'min4 independent survivor families',feed:'HADES price/trade stack + isolated BingX depth20 authority',rule:'Regime-aligned CONTINUATION EARLY STRIKE; counter-regime EXHAUSTION WATCH → TURN ALERT; FULL EXECUTE remains second-punch strict; 79m/245m/lifecycle outcomes tracked separately'}); sync(); try{if(SIPH.ws){SIPH.ws.onclose=null;SIPH.ws.close()}}catch(e){} SIPH.ws=null; SIPH.tries=0; connectSiphon()}
+function startAll(){setStatus('CONNECTING'); log('VIRGO V41.10 dual-path regime lifecycle + candle continuity + top-refresh/bottom-seal start',{target:'min4 independent survivor families',feed:'HADES price/trade stack + isolated BingX depth20 authority',rule:'Regime-aligned CONTINUATION EARLY STRIKE; counter-regime EXHAUSTION WATCH → TURN ALERT; FULL EXECUTE remains second-punch strict; 79m/245m/lifecycle outcomes tracked separately'}); sync(); try{if(SIPH.ws){SIPH.ws.onclose=null;SIPH.ws.close()}}catch(e){} SIPH.ws=null; SIPH.tries=0; connectSiphon()}
 function hadesWake(why){
   const now=Date.now(); if(now-lastWakeAt<3000)return; lastWakeAt=now;
   const age=Date.now()-(lastLive||0); setStatus('resyncing '+why+'…');
@@ -718,12 +718,12 @@ function render(){
 function safeEvidenceClone(obj){
   try{return JSON.parse(JSON.stringify(obj))}catch(e){return String(obj)}
 }
-function evidenceFilename(){return `virgo_v41_8_pull_to_refresh_evidence_${Date.now()}.json`}
+function evidenceFilename(){return `virgo_v41_10_evidence_identity_seal_${Date.now()}.json`}
 function makeEvidencePayload(){updateFamilyMetrics();return {
- engine:'VIRGO_500_V41_8_MOBILE_PULL_TO_REFRESH',created:nowIso(),symbol:'1000PEPEUSDT',feed:'HADES vMaster price/trade stack + isolated OMEN BingX depth20 authority only',depthChannel:BINGX_DEPTH_CHANNEL,depthState:safeEvidenceClone(depthState),lastDepthAt,lastDepthAgeSec:lastDepthAt?Math.floor((Date.now()-lastDepthAt)/1000):null,livePrice:price,lastSource,lastTickAt:lastTs,cycleDay:mytDate(),
+ engine:'VIRGO_500_V41_10_EVIDENCE_IDENTITY_SEAL',created:nowIso(),symbol:'1000PEPEUSDT',feed:'HADES vMaster price/trade stack + isolated OMEN BingX depth20 authority only',depthChannel:BINGX_DEPTH_CHANNEL,depthState:safeEvidenceClone(depthState),lastDepthAt,lastDepthAgeSec:lastDepthAt?Math.floor((Date.now()-lastDepthAt)/1000):null,livePrice:price,lastSource,lastTickAt:lastTs,cycleDay:mytDate(),
  regimeState:safeEvidenceClone(regimeState),survivorCountToday:survivors.filter(x=>x.date===mytDate()).length,opportunityFamilyCountToday:opportunityFamilies.filter(x=>x.date===mytDate()).length,continuationStrikeCountToday:earlyStrikes.filter(x=>x.date===mytDate()).length,turnAlertCountToday:turnAlerts.filter(x=>x.date===mytDate()).length,
  rules:{continuation:'Regime aligned + score >=70 + aligned flow floor + survival + 12s persistence + age<=45m + move 20..175pt',reversal:'Counter-regime exhaustion watch >=58; turn alert >=72 with exhaustion/location plus flow or depth flip and 12s persistence',fullExecute:'impact + second punch + siphon + survival + independence + no poison + age<=79m',tacticalWindowMin:TACTICAL_WINDOW_MIN,extendedWindowMin:EXTENDED_WINDOW_MIN,lifecycleWindowMin:LIFECYCLE_WINDOW_MIN},
- depthSubscription:safeEvidenceClone(depthSubscription),earlyStrikes:safeEvidenceClone(earlyStrikes),turnAlerts:safeEvidenceClone(turnAlerts),signalOutcomeSummary:safeEvidenceClone(earlyOutcomeSummary()),survivors:safeEvidenceClone(survivors),executeOutcomeSummary:safeEvidenceClone(outcomeSummary()),opportunityFamilies:safeEvidenceClone(opportunityFamilies),candidates:safeEvidenceClone(candidates),evidence:safeEvidenceClone(evidence),counters:safeEvidenceClone(counters),guardian:safeEvidenceClone(SHEOL_STREAM_GUARDIAN),siphon:{lastTradeAt:SIPH.lastTradeAt,tradeAgeSec:SIPH.lastTradeAt?Math.floor((Date.now()-SIPH.lastTradeAt)/1000):null,ratioV:SIPH.ratioV,ratioN:SIPH.ratioN,buckets:SIPH.buckets?SIPH.buckets.size:0},candleCount:candles.length,candleContinuity:{mode:VIRGO_CANDLE_CONTINUITY_MODE,store:VIRGO_CANDLE_STORE,retainedBars:candles.length,restoredBars:virgoCandleContinuity.restored,lastSavedAt:virgoCandleContinuity.lastSavedAt,lastMergedAt:virgoCandleContinuity.lastMergedAt,lastBootstrapRoute:virgoCandleContinuity.lastBootstrapRoute,lastError:virgoCandleContinuity.lastError,saveCount:virgoCandleContinuity.saveCount},note:'V41.9 preserves V41.8 pull-to-refresh and V41.7 candle continuity while adding a directional bottom-overscroll seal. Native top pull-down refresh remains available; dragging beyond the true footer is blocked without changing engine logic, ledger geometry, refresh-to-top behavior, or candle-memory sealing.'};}
+ depthSubscription:safeEvidenceClone(depthSubscription),earlyStrikes:safeEvidenceClone(earlyStrikes),turnAlerts:safeEvidenceClone(turnAlerts),signalOutcomeSummary:safeEvidenceClone(earlyOutcomeSummary()),survivors:safeEvidenceClone(survivors),executeOutcomeSummary:safeEvidenceClone(outcomeSummary()),opportunityFamilies:safeEvidenceClone(opportunityFamilies),candidates:safeEvidenceClone(candidates),evidence:safeEvidenceClone(evidence),counters:safeEvidenceClone(counters),guardian:safeEvidenceClone(SHEOL_STREAM_GUARDIAN),siphon:{lastTradeAt:SIPH.lastTradeAt,tradeAgeSec:SIPH.lastTradeAt?Math.floor((Date.now()-SIPH.lastTradeAt)/1000):null,ratioV:SIPH.ratioV,ratioN:SIPH.ratioN,buckets:SIPH.buckets?SIPH.buckets.size:0},candleCount:candles.length,candleContinuity:{mode:VIRGO_CANDLE_CONTINUITY_MODE,store:VIRGO_CANDLE_STORE,retainedBars:candles.length,restoredBars:virgoCandleContinuity.restored,lastSavedAt:virgoCandleContinuity.lastSavedAt,lastMergedAt:virgoCandleContinuity.lastMergedAt,lastBootstrapRoute:virgoCandleContinuity.lastBootstrapRoute,lastError:virgoCandleContinuity.lastError,saveCount:virgoCandleContinuity.saveCount},note:'V41.10 preserves V41.9 top pull-refresh and bottom overscroll seal, V41.7 candle continuity, and V41.2 ledger geometry. This build corrects evidence filename, engine identity, page title, footer, and startup log only; trading logic is unchanged.'};}
 function evidenceJson(){return JSON.stringify(makeEvidencePayload(),null,2)}
 function setExportStatus(msg,kind){let el=E('exportStatus');if(el){el.textContent=msg;el.className='small '+(kind||'')}}
 function showExportBox(json,msg){let box=E('exportBox'),txt=E('exportText');if(txt)txt.value=json;if(box)box.classList.add('show');setExportStatus(msg||'Evidence export ready.','ok')}
