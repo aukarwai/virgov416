@@ -163,7 +163,7 @@ body{
 </head>
 <body><div class="wrap">
 <div class="hero">
-<h1>VIRGO V41.8 DUAL-PATH REGIME LIFECYCLE ENGINE</h1>
+<h1>VIRGO V41.9 DUAL-PATH REGIME LIFECYCLE ENGINE</h1>
 <div class="sub">Purpose: preserve V40’s proven early timing while separating regime-aligned continuation from reversal formation. V41 adds BULLISH / BEARISH / TRANSITION / BALANCED governance, CONTINUATION EARLY STRIKE, EXHAUSTION WATCH → TURN ALERT, dual-horizon outcomes, opportunity-family clustering, and precise age-versus-price execution warnings.</div>
 <div class="price"><div class="px" id="price">—</div><span class="pill" id="feedState">CONNECTING</span></div>
 <div class="small liveMeta" id="lastSeen">Waiting for live feed…</div>
@@ -723,7 +723,7 @@ function makeEvidencePayload(){updateFamilyMetrics();return {
  engine:'VIRGO_500_V41_8_MOBILE_PULL_TO_REFRESH',created:nowIso(),symbol:'1000PEPEUSDT',feed:'HADES vMaster price/trade stack + isolated OMEN BingX depth20 authority only',depthChannel:BINGX_DEPTH_CHANNEL,depthState:safeEvidenceClone(depthState),lastDepthAt,lastDepthAgeSec:lastDepthAt?Math.floor((Date.now()-lastDepthAt)/1000):null,livePrice:price,lastSource,lastTickAt:lastTs,cycleDay:mytDate(),
  regimeState:safeEvidenceClone(regimeState),survivorCountToday:survivors.filter(x=>x.date===mytDate()).length,opportunityFamilyCountToday:opportunityFamilies.filter(x=>x.date===mytDate()).length,continuationStrikeCountToday:earlyStrikes.filter(x=>x.date===mytDate()).length,turnAlertCountToday:turnAlerts.filter(x=>x.date===mytDate()).length,
  rules:{continuation:'Regime aligned + score >=70 + aligned flow floor + survival + 12s persistence + age<=45m + move 20..175pt',reversal:'Counter-regime exhaustion watch >=58; turn alert >=72 with exhaustion/location plus flow or depth flip and 12s persistence',fullExecute:'impact + second punch + siphon + survival + independence + no poison + age<=79m',tacticalWindowMin:TACTICAL_WINDOW_MIN,extendedWindowMin:EXTENDED_WINDOW_MIN,lifecycleWindowMin:LIFECYCLE_WINDOW_MIN},
- depthSubscription:safeEvidenceClone(depthSubscription),earlyStrikes:safeEvidenceClone(earlyStrikes),turnAlerts:safeEvidenceClone(turnAlerts),signalOutcomeSummary:safeEvidenceClone(earlyOutcomeSummary()),survivors:safeEvidenceClone(survivors),executeOutcomeSummary:safeEvidenceClone(outcomeSummary()),opportunityFamilies:safeEvidenceClone(opportunityFamilies),candidates:safeEvidenceClone(candidates),evidence:safeEvidenceClone(evidence),counters:safeEvidenceClone(counters),guardian:safeEvidenceClone(SHEOL_STREAM_GUARDIAN),siphon:{lastTradeAt:SIPH.lastTradeAt,tradeAgeSec:SIPH.lastTradeAt?Math.floor((Date.now()-SIPH.lastTradeAt)/1000):null,ratioV:SIPH.ratioV,ratioN:SIPH.ratioN,buckets:SIPH.buckets?SIPH.buckets.size:0},candleCount:candles.length,candleContinuity:{mode:VIRGO_CANDLE_CONTINUITY_MODE,store:VIRGO_CANDLE_STORE,retainedBars:candles.length,restoredBars:virgoCandleContinuity.restored,lastSavedAt:virgoCandleContinuity.lastSavedAt,lastMergedAt:virgoCandleContinuity.lastMergedAt,lastBootstrapRoute:virgoCandleContinuity.lastBootstrapRoute,lastError:virgoCandleContinuity.lastError,saveCount:virgoCandleContinuity.saveCount},note:'V41.8 preserves V41.7 candle continuity, V41.6 UI, and all engine logic. It restores native mobile pull-to-refresh by allowing vertical root overscroll while retaining the dark root canvas, minimal bottom inset, horizontal anti-swim lock, refresh-to-top behavior, and candle-memory sealing.'};}
+ depthSubscription:safeEvidenceClone(depthSubscription),earlyStrikes:safeEvidenceClone(earlyStrikes),turnAlerts:safeEvidenceClone(turnAlerts),signalOutcomeSummary:safeEvidenceClone(earlyOutcomeSummary()),survivors:safeEvidenceClone(survivors),executeOutcomeSummary:safeEvidenceClone(outcomeSummary()),opportunityFamilies:safeEvidenceClone(opportunityFamilies),candidates:safeEvidenceClone(candidates),evidence:safeEvidenceClone(evidence),counters:safeEvidenceClone(counters),guardian:safeEvidenceClone(SHEOL_STREAM_GUARDIAN),siphon:{lastTradeAt:SIPH.lastTradeAt,tradeAgeSec:SIPH.lastTradeAt?Math.floor((Date.now()-SIPH.lastTradeAt)/1000):null,ratioV:SIPH.ratioV,ratioN:SIPH.ratioN,buckets:SIPH.buckets?SIPH.buckets.size:0},candleCount:candles.length,candleContinuity:{mode:VIRGO_CANDLE_CONTINUITY_MODE,store:VIRGO_CANDLE_STORE,retainedBars:candles.length,restoredBars:virgoCandleContinuity.restored,lastSavedAt:virgoCandleContinuity.lastSavedAt,lastMergedAt:virgoCandleContinuity.lastMergedAt,lastBootstrapRoute:virgoCandleContinuity.lastBootstrapRoute,lastError:virgoCandleContinuity.lastError,saveCount:virgoCandleContinuity.saveCount},note:'V41.9 preserves V41.8 pull-to-refresh and V41.7 candle continuity while adding a directional bottom-overscroll seal. Native top pull-down refresh remains available; dragging beyond the true footer is blocked without changing engine logic, ledger geometry, refresh-to-top behavior, or candle-memory sealing.'};}
 function evidenceJson(){return JSON.stringify(makeEvidencePayload(),null,2)}
 function setExportStatus(msg,kind){let el=E('exportStatus');if(el){el.textContent=msg;el.className='small '+(kind||'')}}
 function showExportBox(json,msg){let box=E('exportBox'),txt=E('exportText');if(txt)txt.value=json;if(box)box.classList.add('show');setExportStatus(msg||'Evidence export ready.','ok')}
@@ -783,7 +783,33 @@ function sealVirgoCandleContinuity(reason){sealVirgoCandlesNow(reason)}
 window.addEventListener('pagehide',()=>sealVirgoCandleContinuity('pagehide'));
 window.addEventListener('beforeunload',()=>sealVirgoCandleContinuity('beforeunload'));
 document.addEventListener('visibilitychange',()=>{if(document.hidden){sealVirgoCandleContinuity('hidden');log('VIRGO candle memory sealed',{bars:candles.length})}});
+function installVirgoDirectionalOverscrollSeal(){
+  let lastTouchY=0;
+  const root=document.documentElement;
+  const pageScrollY=()=>window.scrollY||root.scrollTop||document.body.scrollTop||0;
+  const pageMaxScroll=()=>Math.max(0,Math.ceil(Math.max(root.scrollHeight,document.body.scrollHeight)-window.innerHeight));
+  window.addEventListener('touchstart',ev=>{
+    if(!ev.touches||ev.touches.length!==1)return;
+    lastTouchY=ev.touches[0].clientY;
+  },{passive:true});
+  window.addEventListener('touchmove',ev=>{
+    if(!ev.touches||ev.touches.length!==1)return;
+    const currentY=ev.touches[0].clientY;
+    const fingerDelta=currentY-lastTouchY;
+    lastTouchY=currentY;
+    const maxScroll=pageMaxScroll();
+    const atTrueBottom=pageScrollY()>=maxScroll-1;
+    /* Finger moving upward at the true footer attempts to expose the empty
+       bottom canvas. Block only that direction. Top pull-down remains native. */
+    if(atTrueBottom&&fingerDelta<0)ev.preventDefault();
+  },{passive:false});
+  window.addEventListener('touchend',()=>{
+    const maxScroll=pageMaxScroll();
+    if(pageScrollY()>maxScroll)window.scrollTo(0,maxScroll);
+  },{passive:true});
+}
 restoreVirgoCandles();
+installVirgoDirectionalOverscrollSeal();
 wireEvidenceExportButtons();startAll();render();setInterval(render,1000);
 </script>
 </body></html>
