@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-<title>VIRGO V41.10 | Evidence Identity Seal</title>
+<title>VIRGO V42 | Integrity & Extension Layer</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
 <script>
 /* V41.6 refresh-position governor: disable browser scroll restoration and force a clean top position on every load/refresh. */
@@ -48,6 +48,11 @@
 .tag.regimeBalanced{border-color:#6bb7ff;background:#071625;color:#9ad2ff}
 .tag.slow{border-color:#f9cb5e;background:#201807;color:#ffd46a}
 .tag.observed{border-color:#c08cff;background:#1a0e27;color:#dfb7ff}
+
+.tag.invalid{border-color:#ff5f6d;background:#251014;color:#ff9aa3;box-shadow:0 0 10px rgba(255,95,109,.16)}
+.tag.structural{border-color:#f9cb5e;background:#201807;color:#ffd46a}
+.tag.extension{border-color:#32f58a;background:#0e2a19;color:#7dffb3;box-shadow:0 0 10px rgba(50,245,138,.18)}
+.tag.breakout{border-color:#6bb7ff;background:#071625;color:#9ad2ff}
 .compactStatus{font-size:9px;letter-spacing:.15px}
 .familyLine{display:block;margin-top:3px;color:#b9d8c4;font-size:10px}
 @media(max-width:430px){.table{font-size:10px}.table th,.table td{padding:5px 3px}.tag{font-size:9px}.statusStack{min-height:48px}.statusStack .tag{min-height:22px;padding:3px 5px}}
@@ -134,7 +139,7 @@ body{
 }
 
 
-/* V41.10 evidence identity seal; preserves V41.9 mobile refresh compatibility.
+/* V42 integrity and extension layer; preserves V41.9 mobile refresh compatibility.
    Allow native vertical pull-to-refresh at the top while retaining the dark
    root canvas, minimal bottom inset, and horizontal anti-swim lock. */
 html{
@@ -163,8 +168,8 @@ body{
 </head>
 <body><div class="wrap">
 <div class="hero">
-<h1>VIRGO V41.10 DUAL-PATH REGIME LIFECYCLE ENGINE</h1>
-<div class="sub">Purpose: preserve V40’s proven early timing while separating regime-aligned continuation from reversal formation. V41 adds BULLISH / BEARISH / TRANSITION / BALANCED governance, CONTINUATION EARLY STRIKE, EXHAUSTION WATCH → TURN ALERT, dual-horizon outcomes, opportunity-family clustering, and precise age-versus-price execution warnings.</div>
+<h1>VIRGO V42 INTEGRITY & EXTENSION ENGINE</h1>
+<div class="sub">Purpose: preserve VIRGO’s proven early continuation timing while sealing path authority. V42 adds mandatory Turn Alert authorization for reversals, path-aware FULL EXECUTE integrity, extended-entry quality control, live strike invalidation, family rebirth, stabilized regime hysteresis, and post-500 extension harvesting.</div>
 <div class="price"><div class="px" id="price">—</div><span class="pill" id="feedState">CONNECTING</span></div>
 <div class="small liveMeta" id="lastSeen">Waiting for live feed…</div>
 <div class="btns"><button class="btn primary" onclick="startAll()">Connect / Restart</button><button class="btn" id="exportBtn" onclick="exportEvidence(event)">Export Evidence</button><button class="btn warn" onclick="clearSession()">Clear Session</button></div>
@@ -182,21 +187,21 @@ body{
  <div class="card"><h2>Outcome Pending</h2><div class="big" id="outcomePending">0</div><div class="small">Continuation, turn, and EXECUTE signals still under lifecycle judgment.</div></div>
  <div class="card"><h2>Best Lifecycle MFE</h2><div class="big" id="bestAfterExecute">—</div><div class="small" id="bestAfterDetail">No tracked signal yet.</div></div>
 </div>
-<div class="section"><div class="sectionTitle">V41 Continuation Early Strike — Scout / Strike / Live</div><table class="table"><thead><tr><th>#</th><th>Dir</th><th>Prices</th><th>Scores</th><th>Action</th><th>Confirmation</th></tr></thead><tbody id="earlyStrikeBody"><tr><td colspan="6" class="small">No regime-aligned continuation strike yet.</td></tr></tbody></table></div>
-<div class="section"><div class="sectionTitle">V41 Reversal Path — Exhaustion Watch / Turn Alert / Execute</div><table class="table"><thead><tr><th>#</th><th>Dir</th><th>Prices</th><th>Turn Score</th><th>Action</th><th>Confirmation</th></tr></thead><tbody id="turnAlertBody"><tr><td colspan="6" class="small">No reversal turn alert yet.</td></tr></tbody></table></div>
+<div class="section"><div class="sectionTitle">V42 Continuation Early Strike — Scout / Strike / Live Authority</div><table class="table"><thead><tr><th>#</th><th>Dir</th><th>Prices</th><th>Scores</th><th>Action</th><th>Confirmation</th></tr></thead><tbody id="earlyStrikeBody"><tr><td colspan="6" class="small">No regime-aligned continuation strike yet.</td></tr></tbody></table></div>
+<div class="section"><div class="sectionTitle">V42 Reversal Path — Exhaustion Watch / Mandatory Turn Alert / Execute</div><table class="table"><thead><tr><th>#</th><th>Dir</th><th>Prices</th><th>Turn Score</th><th>Action</th><th>Confirmation</th></tr></thead><tbody id="turnAlertBody"><tr><td colspan="6" class="small">No reversal turn alert yet.</td></tr></tbody></table></div>
 <div class="section"><div class="sectionTitle">Dual-Horizon Signal Outcome Audit</div><table class="table outcomeAuditTable"><thead><tr><th>#</th><th>Signal</th><th>79m Tactical</th><th>245m Extended</th><th>Lifecycle</th><th>Family</th></tr></thead><tbody id="earlyOutcomeBody"><tr><td colspan="6" class="small">No tracked signal outcomes yet.</td></tr></tbody></table></div>
 <div class="section"><div class="sectionTitle">Independent Survivor Board — Scout / Execute / Live</div><table class="table"><thead><tr><th>#</th><th>Dir</th><th>Prices</th><th>Move</th><th>Action</th><th>Confirmation</th></tr></thead><tbody id="survivorBody"><tr><td colspan="6" class="small">No full survivor yet.</td></tr></tbody></table></div>
 <div class="section"><div class="sectionTitle">Opportunity Family Ledger</div><table class="table"><thead><tr><th>#</th><th>Family</th><th>Path</th><th>Signals</th><th>Best / Worst</th><th>Status</th></tr></thead><tbody id="familyBody"><tr><td colspan="6" class="small">No opportunity family yet.</td></tr></tbody></table></div>
 <div class="section"><div class="sectionTitle">Top-20 Suspect Board</div><table class="table"><thead><tr><th>#</th><th>Dir</th><th>Age</th><th>Path / Stage</th><th>Evidence</th></tr></thead><tbody id="suspectBody"><tr><td colspan="5" class="small">No suspects yet.</td></tr></tbody></table></div>
 <div class="section"><div class="sectionTitle">Non-Survivor Taxonomy Counters</div><div class="grid"><div class="card"><h2>Duplicate Fragment</h2><div class="big" id="cDup">0</div></div><div class="card"><h2>No Runway</h2><div class="big" id="cRunway">0</div></div><div class="card"><h2>Late Exhaustion</h2><div class="big" id="cLate">0</div></div><div class="card"><h2>Depth / Flow Bait</h2><div class="big" id="cBait">0</div></div><div class="card"><h2>Stale Survivor Kill</h2><div class="big" id="cStale">0</div><div class="small">Age &gt; 79m cannot execute.</div></div></div></div>
 <div class="section"><div class="sectionTitle">Evidence Log</div><div class="log" id="log"></div></div>
-<div class="footer">VIRGO V41.10 is a live lifecycle evidence harness with persistent candle continuity, not a statistically promoted execution engine. CONTINUATION EARLY STRIKE and TURN ALERT are separate early pathways. FULL EXECUTE remains the strict confirmation. Family clustering prevents multiple entries inside one broad trend from masquerading as independent survivors.</div>
+<div class="footer">VIRGO V42 is a live lifecycle evidence harness with persistent candle continuity. FULL EXECUTE is path-authorized: continuation requires a live Early Strike and reversal requires a real Turn Alert. Broken signals are invalidated for live use while their research outcomes remain tracked. Mission-secured families can continue through extension tiers.</div>
 </div>
 
 <script>
 'use strict';
 /* =====================================================================
-   VIRGO V41 PRESERVED FEED + DEPTH AUTHORITY
+   VIRGO V42 PRESERVED FEED + DEPTH AUTHORITY
    Price/trade feed stays isolated from the attached HADES vMaster stack:
    BingX ticker → Binance ticker fallback → Binance REST pulse, Binance 1m
    bootstrap, guardian watchdog, wake-on-foreground, and BingX @trade siphon.
@@ -215,6 +220,14 @@ const TURN_ALERT_MIN_SCORE=72, EXHAUSTION_WATCH_MIN_SCORE=58, CONTINUATION_PERSI
 const EARLY_STRIKE_MAX_AGE_MIN=45, EARLY_STRIKE_BEST_AGE_MIN=30, EARLY_STRIKE_MAX_SCOUT_MOVE=175, EARLY_STRIKE_MIN_SCOUT_MOVE=20;
 const EARLY_OUTCOME_TARGET_POINTS=500, EARLY_OUTCOME_FAIL_POINTS=500, TACTICAL_WINDOW_MIN=79, EXTENDED_WINDOW_MIN=245, LIFECYCLE_WINDOW_MIN=360;
 const CANDIDATE_EXPIRY_MIN=79, CANDIDATE_CAUTION_MIN=30;
+/* V42 integrity controls — preserve early timing, tighten authority. */
+const V42_PATH_HEALTH_MIN_SCORE=58, V42_TURN_HEALTH_MIN_SCORE=58;
+const V42_EXTENDED_LONG_LOC=.90, V42_EXTENDED_SHORT_LOC=.10, V42_EXTENDED_RUNWAY_MAX=3, V42_EXTENDED_DEPTH_MIN=4;
+const V42_EXTENDED_STRIKE_SCORE=85, V42_EXTENDED_PERSIST_SEC=24, V42_EXTENDED_FLOW_FLOOR=.25;
+const V42_INVALIDATE_SCORE=30, V42_INVALIDATE_ADVERSE_POINTS=175, V42_INVALIDATE_PERSIST_SEC=8;
+const V42_FAMILY_REBIRTH_MIN=90, V42_FAMILY_MAX_DISTANCE=500;
+const V42_REGIME_ENTRY_PERSIST_MS=20000, V42_REGIME_EXIT_PERSIST_MS=30000, V42_REGIME_REVERSE_PERSIST_MS=40000, V42_REGIME_MIN_DWELL_MS=45000;
+const V42_EXTENSION_TIERS=[500,900,1500,2000];
 const MAX_CANDLES=5000;
 /* VIRGO V41.7 candle continuity — isolated from the attached continuity source only. */
 const VIRGO_CANDLE_STORE='VIRGO_1000PEPE_CANDLE_CONTINUITY_V1';
@@ -230,9 +243,9 @@ let virgoCandleContinuity={restored:0,lastSavedAt:0,lastMergedAt:0,lastBootstrap
 let price=null,lastTs=0,lastSource='—';
 let priceStream=[], candleMap=new Map(), candles=[];
 let wsA=null, wsB=null, bingxTries=0, binanceTries=0, lastLive=0, liveSource='—';
-let trades=[], candidates=[], earlyStrikes=[], turnAlerts=[], survivors=[], opportunityFamilies=[], evidence=[];
+let trades=[], candidates=[], earlyStrikes=[], turnAlerts=[], survivors=[], structuralConfirmations=[], opportunityFamilies=[], evidence=[];
 let regimeState={label:'BALANCED',rawLabel:'BALANCED',score:0,confidence:0,epoch:0,changedAt:Date.now(),pendingLabel:null,pendingSince:0,details:{}};
-let counters={duplicate:0,runway:0,late:0,bait:0,stale:0,targetHit:0,failedFirst:0,weakFollow:0,earlyStrike:0,turnAlert:0,exhaustionWatch:0,earlyTargetHit:0,earlyFailedFirst:0,earlyWeak:0,regimeFlip:0};
+let counters={duplicate:0,runway:0,late:0,bait:0,stale:0,targetHit:0,failedFirst:0,weakFollow:0,earlyStrike:0,turnAlert:0,exhaustionWatch:0,earlyTargetHit:0,earlyFailedFirst:0,earlyWeak:0,regimeFlip:0,structuralOnly:0,invalidatedStrike:0,familyRebirth:0,extensionTier:0,pathBlocked:0};
 let survivalPrev=null;
 let depthState=null,lastDepthAt=0; // VIRGO depth authority from BingX depth20
 let bingxSocketGeneration=0, lastBingxConnectAttempt=0, lastWakeAt=0;
@@ -515,7 +528,7 @@ function connectSiphon(){
   ws.onerror=function(){try{ws.close()}catch(e){}};
 }
 setInterval(()=>{const fresh=Date.now()-SIPH.lastTradeAt<20000; const b=SIPH.buckets.get(minuteKey(Date.now())); const extra=fresh?` · siphon ${b?b.n:0}tr`:''; if(lastLive&&Date.now()-lastLive<20000)setStatus((liveSource||'LIVE')+extra);},5000);
-function startAll(){setStatus('CONNECTING'); log('VIRGO V41.10 dual-path regime lifecycle + candle continuity + top-refresh/bottom-seal start',{target:'min4 independent survivor families',feed:'HADES price/trade stack + isolated BingX depth20 authority',rule:'Regime-aligned CONTINUATION EARLY STRIKE; counter-regime EXHAUSTION WATCH → TURN ALERT; FULL EXECUTE remains second-punch strict; 79m/245m/lifecycle outcomes tracked separately'}); sync(); try{if(SIPH.ws){SIPH.ws.onclose=null;SIPH.ws.close()}}catch(e){} SIPH.ws=null; SIPH.tries=0; connectSiphon()}
+function startAll(){setStatus('CONNECTING'); log('VIRGO V42 integrity + extension layer start',{target:'min4 independent survivor families',feed:'HADES price/trade stack + isolated BingX depth20 authority',rule:'Continuation requires live Early Strike authority; reversal requires TURN ALERT authority; FULL EXECUTE is path-health gated; invalidated strikes remain research-tracked; +500 unlocks extension tiers'}); sync(); try{if(SIPH.ws){SIPH.ws.onclose=null;SIPH.ws.close()}}catch(e){} SIPH.ws=null; SIPH.tries=0; connectSiphon()}
 function hadesWake(why){
   const now=Date.now(); if(now-lastWakeAt<3000)return; lastWakeAt=now;
   const age=Date.now()-(lastLive||0); setStatus('resyncing '+why+'…');
@@ -559,11 +572,11 @@ function actionLabel(x){
 function outcomeStatusClass(st){return st==='TARGET_HIT'?'win':(st==='FAILED_FIRST'?'fail':(st==='WEAK_FOLLOW_THROUGH'?'late':'pending'))}
 function updateOutcome(x){
   if(!x||!x.fullSurvivor||!price)return x;if(!x.executeTime)x.executeTime=Date.now();if(!x.executePrice){x.executePrice=price;x.executePriceInferred=true;}x.livePrice=price;x.moveFromScoutPts=signedMoveFrom(x.dir,x.entry,price);x.moveFromExecutePts=signedMoveFrom(x.dir,x.executePrice,price);x.maxFavorableAfterExecute=Math.max(x.maxFavorableAfterExecute||0,x.moveFromExecutePts);x.maxAdverseAfterExecute=Math.min(x.maxAdverseAfterExecute||0,x.moveFromExecutePts);x.minutesSinceExecute=(Date.now()-x.executeTime)/60000;
-  if(x.moveFromExecutePts>=500&&!x.firstTargetAt){x.firstTargetAt=Date.now();x.timeToTargetMin=x.minutesSinceExecute;}if(x.moveFromExecutePts<=-500&&!x.firstFailAt){x.firstFailAt=Date.now();x.timeToFailMin=x.minutesSinceExecute;}
-  x.tacticalStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.executeTime,TACTICAL_WINDOW_MIN,x.minutesSinceExecute);x.extendedStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.executeTime,EXTENDED_WINDOW_MIN,x.minutesSinceExecute);x.lifecycleStatus=lifecycleStatus(x.firstTargetAt,x.firstFailAt,x.minutesSinceExecute);x.outcomeStatus=x.tacticalStatus;const a=actionLabel(x);Object.assign(x,{actionLabel:a.text,actionClass:a.cls,ageStatus:a.ageText,ageStatusClass:a.ageCls,priceStatus:a.priceText,priceStatusClass:a.priceCls});attachExecuteFamily(x);return x;
+  if(x.moveFromExecutePts>=500&&!x.firstTargetAt){x.firstTargetAt=Date.now();x.timeToTargetMin=x.minutesSinceExecute;counters.targetHit=(counters.targetHit||0)+1;}if(x.moveFromExecutePts<=-500&&!x.firstFailAt){x.firstFailAt=Date.now();x.timeToFailMin=x.minutesSinceExecute;counters.failedFirst=(counters.failedFirst||0)+1;}
+  x.tacticalStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.executeTime,TACTICAL_WINDOW_MIN,x.minutesSinceExecute);x.extendedStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.executeTime,EXTENDED_WINDOW_MIN,x.minutesSinceExecute);x.lifecycleStatus=lifecycleStatus(x.firstTargetAt,x.firstFailAt,x.minutesSinceExecute);x.outcomeStatus=x.tacticalStatus;const a=actionLabel(x);Object.assign(x,{actionLabel:a.text,actionClass:a.cls,ageStatus:a.ageText,ageStatusClass:a.ageCls,priceStatus:a.priceText,priceStatusClass:a.priceCls});updateExtensionState(x,'moveFromExecutePts','maxFavorableAfterExecute');attachExecuteFamily(x);return x;
 }
 function updateAllOutcomes(){for(const x of survivors)updateOutcome(x)}
-function outcomeSummary(){let pending=0,target=0,fail=0,slow=0,best=null;for(const x of survivors){updateOutcome(x);if(x.lifecycleStatus==='TARGET_HIT')target++;else if(x.lifecycleStatus==='FAILED_FIRST')fail++;else if(x.lifecycleStatus==='PENDING')pending++;else slow++;if(!best||(x.maxFavorableAfterExecute||0)>(best.maxFavorableAfterExecute||0))best=x;}return {pending,target,fail,slow,best};}
+function outcomeSummary(){let pending=0,target=0,fail=0,slow=0,best=null;for(const x of survivors.filter(x=>x.actionableExecute!==false)){updateOutcome(x);if(x.lifecycleStatus==='TARGET_HIT')target++;else if(x.lifecycleStatus==='FAILED_FIRST')fail++;else if(x.lifecycleStatus==='PENDING')pending++;else slow++;if(!best||(x.maxFavorableAfterExecute||0)>(best.maxFavorableAfterExecute||0))best=x;}return {pending,target,fail,slow,best};}
 
 
 function clamp01(v){return Math.max(0,Math.min(1,v))}
@@ -586,18 +599,112 @@ function earlyScoreModel(c,f,s,m,d,ageMin,move){
   if(move<EARLY_STRIKE_MIN_SCOUT_MOVE)comps.penalty+=Math.round(clamp01((EARLY_STRIKE_MIN_SCOUT_MOVE-move)/80)*8);if(move>125)comps.penalty+=Math.round(clamp01((move-125)/50)*12);if(ageMin>30)comps.penalty+=Math.round(clamp01((ageMin-30)/15)*10);if(c.poison)comps.penalty+=60;
   const raw=comps.freshness+comps.flow+comps.depth+comps.pressure+comps.location+comps.independence+comps.runway+comps.regime+comps.persistence-comps.penalty;return {score:Math.max(0,Math.min(100,Math.round(raw))),components:comps,alignedFlow:+alignedFlow.toFixed(4)};
 }
+
+function extendedEntryQuality(c,m,em){
+  if(!m||!em)return {pass:true,extended:false,weakGeometry:false,reason:'NO_METRICS'};
+  const extended=c.dir==='LONG'?m.loc>=V42_EXTENDED_LONG_LOC:m.loc<=V42_EXTENDED_SHORT_LOC;
+  const runway=em.components.runway||0,depth=em.components.depth||0;
+  const weakGeometry=extended&&runway<=V42_EXTENDED_RUNWAY_MAX&&depth<V42_EXTENDED_DEPTH_MIN;
+  const persistenceSec=c.continuationAlignedSince?(Date.now()-c.continuationAlignedSince)/1000:0;
+  const override=em.score>=V42_EXTENDED_STRIKE_SCORE&&persistenceSec>=V42_EXTENDED_PERSIST_SEC&&em.alignedFlow>=V42_EXTENDED_FLOW_FLOOR;
+  return {pass:!weakGeometry||override,extended,weakGeometry,override,runway,depth,persistenceSec:+persistenceSec.toFixed(1),reason:weakGeometry&&!override?'EXTENDED_WEAK_GEOMETRY':'PASS'};
+}
+function pathIntegrity(c,f,d,move){
+  const path=c.turnAlert?'REVERSAL':(c.earlyStrike?'CONTINUATION':null);
+  const alignedFlow=c.dir==='LONG'?f.flow:-f.flow;
+  const depthOk=!depthOpposes(c.dir,d);
+  const priceOk=move<=EARLY_STRIKE_MAX_SCOUT_MOVE;
+  if(path==='CONTINUATION'){
+    const scoreOk=(c.earlyScore||0)>=V42_PATH_HEALTH_MIN_SCORE;
+    const regimeOk=regimeAligned(c.dir);
+    const flowOk=alignedFlow>=.02;
+    return {path,authority:true,pass:scoreOk&&regimeOk&&flowOk&&depthOk&&priceOk,scoreOk,regimeOk,flowOk,depthOk,priceOk,alignedFlow:+alignedFlow.toFixed(4),currentScore:c.earlyScore||0};
+  }
+  if(path==='REVERSAL'){
+    const scoreOk=(c.turnScore||0)>=V42_TURN_HEALTH_MIN_SCORE;
+    const grace=regimeState.label==='BALANCED'&&c.turnAlertTime&&Date.now()-c.turnAlertTime<=5*60000;
+    const regimeOk=counterRegime(c.dir)||grace;
+    const flipOk=((c.turnComponents&&c.turnComponents.flowFlip)||0)>=7||((c.turnComponents&&c.turnComponents.depthFlip)||0)>=7;
+    return {path,authority:true,pass:scoreOk&&regimeOk&&flipOk&&depthOk&&priceOk,scoreOk,regimeOk,flipOk,depthOk,priceOk,alignedFlow:+alignedFlow.toFixed(4),currentScore:c.turnScore||0};
+  }
+  return {path:null,authority:false,pass:false,reason:'NO_PATH_AUTHORITY',depthOk,priceOk,alignedFlow:+alignedFlow.toFixed(4)};
+}
+function registerStructuralConfirmation(c,integrity){
+  let rec=structuralConfirmations.find(x=>x.id===c.id);
+  if(!rec){
+    rec={id:c.id,dir:c.dir,date:c.date,path:integrity.path||'UNAUTHORIZED',scoutTime:c.scoutTime,entry:c.entry,structuralTime:Date.now(),structuralPrice:price,ageMin:c.ageMin,movePts:c.movePts,execScore:c.execScore,integrity:{...integrity},status:'STRUCTURAL_ONLY'};
+    structuralConfirmations.push(rec);counters.structuralOnly=(counters.structuralOnly||0)+1;log(`STRUCTURAL CONFIRMATION ${c.dir}`,{id:c.id,path:rec.path,price,ageMin:+c.ageMin.toFixed(2),movePts:+c.movePts.toFixed(0),blockedBy:Object.entries(integrity).filter(([k,v])=>k.endsWith('Ok')&&v===false).map(([k])=>k)});
+  }else{rec.integrity={...integrity};rec.lastSeenAt=Date.now();}
+  c.structuralConfirmation=true;c.structuralTime=rec.structuralTime;c.structuralPrice=rec.structuralPrice;c.stage='STRUCTURAL_CONFIRMATION';return rec;
+}
+function updateExtensionState(x,moveField,maxField){
+  const current=+(x[moveField]||0),peak=+(x[maxField]||0);let tier=0;
+  for(const t of V42_EXTENSION_TIERS)if(peak>=t)tier=t;
+  x.missionSecured=peak>=500;x.extensionTier=tier;x.extensionPeak=peak;x.extensionGiveback=Math.max(0,peak-current);
+  if(!x.missionSecured)x.extensionStatus='MISSION_PENDING';
+  else if(tier>=2000)x.extensionStatus='EXTENSION_TIER_3';
+  else if(tier>=1500)x.extensionStatus='EXTENSION_TIER_2';
+  else if(tier>=900)x.extensionStatus='EXTENSION_TIER_1';
+  else x.extensionStatus='MISSION_SECURED';
+  const protectThreshold=Math.max(150,peak*.25);
+  if(x.missionSecured&&x.extensionGiveback>=protectThreshold)x.extensionAction='PROTECT / EXIT EXTENSION';
+  else if(x.missionSecured)x.extensionAction='HOLD EXTENSION WITH STRUCTURAL TRAIL';
+  else x.extensionAction='NONE';
+  if(tier>(x.lastLoggedExtensionTier||0)){x.lastLoggedExtensionTier=tier;counters.extensionTier=(counters.extensionTier||0)+1;log(`EXTENSION TIER ${tier} ${x.dir}`,{id:x.id,familyId:x.familyId,peak:+peak.toFixed(0),current:+current.toFixed(0),action:x.extensionAction});}
+}
+function invalidateLiveAuthority(c,reason){
+  const now=Date.now(),records=[earlyStrikes.find(x=>x.id===c.id),turnAlerts.find(x=>x.id===c.id)].filter(Boolean);
+  for(const rec of records){
+    if(rec.liveAuthorityStatus==='INVALIDATED')continue;
+    rec.liveAuthorityStatus='INVALIDATED';rec.invalidatedAt=now;rec.invalidationReason=reason||c.poison||'integrity-collapse';rec.researchOutcomeStatus=rec.lifecycleStatus||'PENDING';
+    counters.invalidatedStrike=(counters.invalidatedStrike||0)+1;log(`LIVE AUTHORITY INVALIDATED ${rec.dir}`,{id:rec.id,path:rec.turnTime?'REVERSAL':'CONTINUATION',familyId:rec.familyId,reason:rec.invalidationReason,currentScore:c.turnAlert?c.turnScore:c.earlyScore,movePts:+(c.movePts||0).toFixed(0),researchOutcome:rec.researchOutcomeStatus});
+    const fam=opportunityFamilies.find(f=>f.id===rec.familyId);if(fam&&!fam.executeIds.length&&!fam.targetObserved&&!fam.failObserved){fam.invalidatedAt=now;fam.closedAt=now;fam.status='INVALIDATED';}
+  }
+}
+function refreshOutcomeCounters(){
+  counters.targetHit=survivors.filter(x=>x.firstTargetAt).length;
+  counters.failedFirst=survivors.filter(x=>x.firstFailAt).length;
+  const early=[...earlyStrikes,...turnAlerts];
+  counters.earlyTargetHit=early.filter(x=>x.firstTargetAt).length;
+  counters.earlyFailedFirst=early.filter(x=>x.firstFailAt).length;
+  return {targetHit:counters.targetHit,failedFirst:counters.failedFirst,earlyTargetHit:counters.earlyTargetHit,earlyFailedFirst:counters.earlyFailedFirst};
+}
+function repairV42FamilyHistory(){
+  let repaired=0,unauthorized=0;
+  for(const fam of [...opportunityFamilies]){
+    const members=earlyStrikes.filter(x=>x.familyId===fam.id).sort((a,b)=>a.strikeTime-b.strikeTime);
+    if(members.length<2)continue;
+    let anchor=members[0];
+    for(const rec of members.slice(1)){
+      const timeGap=(rec.strikeTime-anchor.strikeTime)/60000,priceGap=Math.abs(pts(rec.strikePrice,anchor.strikePrice));
+      if(rec.date!==anchor.date||timeGap>V42_FAMILY_REBIRTH_MIN||priceGap>=V42_FAMILY_MAX_DISTANCE){
+        const nf={id:familyId(),dir:rec.dir,path:'CONTINUATION',date:rec.date,regimeAtBirth:rec.regimeAtBirth||fam.regimeAtBirth,regimeEpoch:rec.regimeEpoch??(fam.regimeEpoch||0),anchorPrice:rec.strikePrice,startAt:rec.strikeTime,lastSignalAt:rec.strikeTime,signalIds:[rec.id],strikeIds:[rec.id],turnIds:[],executeIds:[],maxFavorable:rec.maxFavorableAfterStrike||0,maxAdverse:rec.maxAdverseAfterStrike||0,status:'OPEN'};
+        opportunityFamilies.push(nf);rec.familyId=nf.id;rec.familyPath='CONTINUATION';const cand=candidates.find(x=>x.id===rec.id);if(cand)cand.familyId=nf.id;const surv=survivors.find(x=>x.id===rec.id);if(surv){surv.familyId=nf.id;nf.executeIds.push(rec.id);}fam.signalIds=(fam.signalIds||[]).filter(id=>id!==rec.id);fam.strikeIds=(fam.strikeIds||[]).filter(id=>id!==rec.id);fam.executeIds=(fam.executeIds||[]).filter(id=>id!==rec.id);repaired++;anchor=rec;
+      }else anchor=rec;
+    }
+  }
+  for(const x of survivors){
+    const path=x.signalPath||x.familyPath||'CONFIRMATION';
+    const authorized=path==='REVERSAL'?turnAlerts.some(t=>t.id===x.id):path==='CONTINUATION'?earlyStrikes.some(e=>e.id===x.id):false;
+    if(!authorized&&x.actionableExecute!==false){x.actionableExecute=false;x.authorityStatus='LEGACY_UNAUTHORIZED';x.authorityRepairAt=Date.now();unauthorized++;const fam=opportunityFamilies.find(f=>f.id===x.familyId);if(fam)fam.legacyUnauthorized=true;}
+  }
+  if(repaired){counters.familyRebirth=(counters.familyRebirth||0)+repaired;log('V42 FAMILY HISTORY REPAIRED',{splitSignals:repaired,rule:'90m/500pt/date rebirth'});}
+  if(unauthorized)log('V42 LEGACY PATH AUTHORITY REPAIR',{unauthorizedSurvivors:unauthorized,rule:'reversal requires Turn Alert; continuation requires Early Strike'});
+  updateFamilyMetrics();refreshOutcomeCounters();return repaired;
+}
+
 function registerEarlyStrike(c){
   if(earlyStrikes.some(x=>x.id===c.id))return;
-  const rec={...c,strikeTime:Date.now(),strikePrice:price,strikeAgeMin:c.ageMin,strikeMoveFromScoutPts:c.movePts,strikeScore:c.earlyScore,currentScore:c.earlyScore,earlyScore:c.earlyScore,earlyComponents:{...(c.earlyComponents||{})},livePrice:price,moveFromStrikePts:0,maxFavorableAfterStrike:0,maxAdverseAfterStrike:0,tacticalStatus:'PENDING',extendedStatus:'PENDING',lifecycleStatus:'PENDING',fullExecuteConfirmed:false,signalPath:'CONTINUATION'};
-  attachFamily(rec,'CONTINUATION','strikeTime','strikePrice');const a=earlyActionLabel(rec);rec.earlyActionLabel=a.text;rec.earlyActionClass=a.cls;earlyStrikes.push(rec);c.earlyStrike=true;c.earlyStrikeTime=rec.strikeTime;c.earlyStrikePrice=rec.strikePrice;c.earlyStrikeAgeMin=rec.strikeAgeMin;c.strikeScore=rec.strikeScore;c.familyId=rec.familyId;c.signalPath='CONTINUATION';counters.earlyStrike=(counters.earlyStrike||0)+1;log(`CONTINUATION EARLY STRIKE ${c.dir}`,{id:c.id,scoutEntry:c.entry,strikePrice:rec.strikePrice,ageMin:+rec.strikeAgeMin.toFixed(2),moveFromScoutPts:+rec.strikeMoveFromScoutPts.toFixed(0),strikeScore:rec.strikeScore,components:rec.earlyComponents,regime:regimeState.label,familyId:rec.familyId,action:rec.earlyActionLabel});
+  const rec={...c,strikeTime:Date.now(),strikePrice:price,strikeAgeMin:c.ageMin,strikeMoveFromScoutPts:c.movePts,strikeScore:c.earlyScore,currentScore:c.earlyScore,earlyScore:c.earlyScore,earlyComponents:{...(c.earlyComponents||{})},livePrice:price,moveFromStrikePts:0,maxFavorableAfterStrike:0,maxAdverseAfterStrike:0,tacticalStatus:'PENDING',extendedStatus:'PENDING',lifecycleStatus:'PENDING',fullExecuteConfirmed:false,signalPath:'CONTINUATION',liveAuthorityStatus:'ACTIVE',extensionStatus:'MISSION_PENDING'};
+  attachFamily(rec,'CONTINUATION','strikeTime','strikePrice');const a=earlyActionLabel(rec);rec.earlyActionLabel=a.text;rec.earlyActionClass=a.cls;earlyStrikes.push(rec);c.earlyStrike=true;c.earlyStrikeTime=rec.strikeTime;c.earlyStrikePrice=rec.strikePrice;c.earlyStrikeAgeMin=rec.strikeAgeMin;c.strikeScore=rec.strikeScore;c.familyId=rec.familyId;c.signalPath='CONTINUATION';counters.earlyStrike=(counters.earlyStrike||0)+1;log(`CONTINUATION EARLY STRIKE ${c.dir}`,{id:c.id,scoutEntry:c.entry,strikePrice:rec.strikePrice,ageMin:+rec.strikeAgeMin.toFixed(2),moveFromScoutPts:+rec.strikeMoveFromScoutPts.toFixed(0),strikeScore:rec.strikeScore,components:rec.earlyComponents,regime:regimeState.label,familyId:rec.familyId,action:rec.earlyActionLabel,authority:'ACTIVE'});
 }
 function updateEarlyOutcome(x){
   if(!x||!x.strikePrice||!price)return x;x.livePrice=price;x.moveFromScoutPts=signedMoveFrom(x.dir,x.entry,price);x.moveFromStrikePts=signedMoveFrom(x.dir,x.strikePrice,price);x.maxFavorableAfterStrike=Math.max(x.maxFavorableAfterStrike||0,x.moveFromStrikePts);x.maxAdverseAfterStrike=Math.min(x.maxAdverseAfterStrike||0,x.moveFromStrikePts);x.minutesSinceStrike=(Date.now()-x.strikeTime)/60000;
-  if(x.moveFromStrikePts>=500&&!x.firstTargetAt){x.firstTargetAt=Date.now();x.timeToTargetMin=x.minutesSinceStrike;log(`LIFECYCLE TARGET OBSERVED ${x.dir}`,{id:x.id,path:'CONTINUATION',familyId:x.familyId,timeToTargetMin:+x.timeToTargetMin.toFixed(2)});}if(x.moveFromStrikePts<=-500&&!x.firstFailAt){x.firstFailAt=Date.now();x.timeToFailMin=x.minutesSinceStrike;log(`LIFECYCLE FAIL OBSERVED ${x.dir}`,{id:x.id,path:'CONTINUATION',familyId:x.familyId,timeToFailMin:+x.timeToFailMin.toFixed(2)});}
+  if(x.moveFromStrikePts>=500&&!x.firstTargetAt){x.firstTargetAt=Date.now();x.timeToTargetMin=x.minutesSinceStrike;counters.earlyTargetHit=(counters.earlyTargetHit||0)+1;log(`LIFECYCLE TARGET OBSERVED ${x.dir}`,{id:x.id,path:'CONTINUATION',familyId:x.familyId,timeToTargetMin:+x.timeToTargetMin.toFixed(2)});}if(x.moveFromStrikePts<=-500&&!x.firstFailAt){x.firstFailAt=Date.now();x.timeToFailMin=x.minutesSinceStrike;counters.earlyFailedFirst=(counters.earlyFailedFirst||0)+1;log(`LIFECYCLE FAIL OBSERVED ${x.dir}`,{id:x.id,path:'CONTINUATION',familyId:x.familyId,timeToFailMin:+x.timeToFailMin.toFixed(2)});}
   if(!x.firstTargetAt&&(x.maxFavorableAfterStrike||0)>=500&&x.maxFavorableAt){x.firstTargetAt=x.maxFavorableAt;x.targetTimeInferred=true;}if(!x.firstFailAt&&(x.maxAdverseAfterStrike||0)<=-500&&x.maxAdverseAt){x.firstFailAt=x.maxAdverseAt;x.failTimeInferred=true;}
-  const linked=survivors.find(s=>s.id===x.id);if(linked){x.fullExecuteConfirmed=true;x.executePrice=linked.executePrice;x.executeTime=linked.executeTime;x.executeAgeMin=linked.executeAgeMin;}
-  const liveCandidate=candidates.find(c=>c.id===x.id);if(liveCandidate)x.currentScore=liveCandidate.earlyScore;
-  x.tacticalStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.strikeTime,TACTICAL_WINDOW_MIN,x.minutesSinceStrike);x.extendedStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.strikeTime,EXTENDED_WINDOW_MIN,x.minutesSinceStrike);x.lifecycleStatus=lifecycleStatus(x.firstTargetAt,x.firstFailAt,x.minutesSinceStrike);x.earlyOutcomeStatus=x.tacticalStatus;return x;
+  const linked=survivors.find(s=>s.id===x.id);if(linked){x.fullExecuteConfirmed=true;x.executePrice=linked.executePrice;x.executeTime=linked.executeTime;x.executeAgeMin=linked.executeAgeMin;x.liveAuthorityStatus='CONFIRMED';}
+  const liveCandidate=candidates.find(c=>c.id===x.id);if(liveCandidate){x.currentScore=liveCandidate.earlyScore;if(liveCandidate.stage==='REJECT')invalidateLiveAuthority(liveCandidate,liveCandidate.poison);}
+  x.tacticalStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.strikeTime,TACTICAL_WINDOW_MIN,x.minutesSinceStrike);x.extendedStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.strikeTime,EXTENDED_WINDOW_MIN,x.minutesSinceStrike);x.lifecycleStatus=lifecycleStatus(x.firstTargetAt,x.firstFailAt,x.minutesSinceStrike);x.earlyOutcomeStatus=x.tacticalStatus;updateExtensionState(x,'moveFromStrikePts','maxFavorableAfterStrike');return x;
 }
 function updateAllEarlyOutcomes(){for(const x of earlyStrikes)updateEarlyOutcome(x);for(const x of turnAlerts)updateTurnOutcome(x);updateFamilyMetrics()}
 function earlyOutcomeSummary(){
@@ -622,19 +729,39 @@ function computeRegimeRaw(){
 }
 function updateRegime(){
   const raw=computeRegimeRaw(),now=Date.now();regimeState.rawLabel=raw.label;regimeState.score=raw.score;regimeState.confidence=raw.confidence;regimeState.details=raw.details;
-  if(!regimeState.initialized){regimeState.label=raw.label==='TRANSITION'?'BALANCED':raw.label;regimeState.initialized=true;regimeState.changedAt=now;return regimeState;}
+  if(!regimeState.initialized){regimeState.label=raw.label==='TRANSITION'?'BALANCED':raw.label;regimeState.initialized=true;regimeState.changedAt=now;regimeState.displayLabel=regimeState.label;return regimeState;}
   const target=raw.label==='TRANSITION'?regimeState.label:raw.label;
   if(target===regimeState.label){regimeState.pendingLabel=null;regimeState.pendingSince=0;}
-  else if(regimeState.pendingLabel!==target){regimeState.pendingLabel=target;regimeState.pendingSince=now;}
-  else if(now-regimeState.pendingSince>=20000){const old=regimeState.label;regimeState.label=target;regimeState.epoch=(regimeState.epoch||0)+1;regimeState.changedAt=now;regimeState.pendingLabel=null;regimeState.pendingSince=0;counters.regimeFlip=(counters.regimeFlip||0)+1;log('REGIME FLIP',{from:old,to:target,score:raw.score,details:raw.details});closeOppositeFamilies(target==='BULLISH'?'LONG':target==='BEARISH'?'SHORT':null,now);}
+  else{
+    if(regimeState.pendingLabel!==target){regimeState.pendingLabel=target;regimeState.pendingSince=now;}
+    const directionalOld=regimeState.label==='BULLISH'||regimeState.label==='BEARISH';
+    const directionalNew=target==='BULLISH'||target==='BEARISH';
+    const opposite=directionalOld&&directionalNew&&target!==regimeState.label;
+    const persistMs=opposite?V42_REGIME_REVERSE_PERSIST_MS:(directionalOld&&!directionalNew?V42_REGIME_EXIT_PERSIST_MS:V42_REGIME_ENTRY_PERSIST_MS);
+    const dwellOk=now-(regimeState.changedAt||0)>=V42_REGIME_MIN_DWELL_MS;
+    if(dwellOk&&now-regimeState.pendingSince>=persistMs){
+      const old=regimeState.label;regimeState.label=target;regimeState.epoch=(regimeState.epoch||0)+1;regimeState.changedAt=now;regimeState.pendingLabel=null;regimeState.pendingSince=0;counters.regimeFlip=(counters.regimeFlip||0)+1;log('REGIME FLIP',{from:old,to:target,score:raw.score,details:raw.details,persistMs,dwellMs:V42_REGIME_MIN_DWELL_MS});closeOppositeFamilies(target==='BULLISH'?'LONG':target==='BEARISH'?'SHORT':null,now);
+    }
+  }
   regimeState.displayLabel=regimeState.pendingLabel?'TRANSITION':regimeState.label;return regimeState;
 }
 function regimeAligned(dir,r=regimeState){return (dir==='LONG'&&r.label==='BULLISH')||(dir==='SHORT'&&r.label==='BEARISH')}
 function counterRegime(dir,r=regimeState){return (dir==='SHORT'&&r.label==='BULLISH')||(dir==='LONG'&&r.label==='BEARISH')}
 function familyId(){return 'F'+Date.now().toString(36).toUpperCase()+Math.random().toString(36).slice(2,4).toUpperCase()}
 function ensureOpportunityFamily(dir,path,signalId,signalTime=Date.now(),signalPrice=price){
-  let fam=[...opportunityFamilies].reverse().find(f=>!f.closedAt&&f.dir===dir&&f.path===path&&signalTime-f.lastSignalAt<=LIFECYCLE_WINDOW_MIN*60000&&Math.abs(pts(signalPrice||0,f.anchorPrice||signalPrice||0))<1400);
-  if(!fam){fam={id:familyId(),dir,path,date:mytDate(signalTime),regimeAtBirth:regimeState.label,regimeEpoch:regimeState.epoch||0,anchorPrice:signalPrice,startAt:signalTime,lastSignalAt:signalTime,signalIds:[],strikeIds:[],turnIds:[],executeIds:[],maxFavorable:0,maxAdverse:0,status:'OPEN'};opportunityFamilies.push(fam);log('OPPORTUNITY FAMILY OPEN',{familyId:fam.id,dir,path,regime:fam.regimeAtBirth,anchorPrice:signalPrice});}
+  updateFamilyMetrics();
+  const signalDate=mytDate(signalTime),epoch=regimeState.epoch||0;
+  let fam=[...opportunityFamilies].reverse().find(f=>{
+    const ageOk=signalTime-(f.lastSignalAt||f.startAt||0)<=V42_FAMILY_REBIRTH_MIN*60000;
+    const priceOk=Math.abs(pts(signalPrice||0,f.anchorPrice||signalPrice||0))<V42_FAMILY_MAX_DISTANCE;
+    const epochOk=(f.regimeEpoch??epoch)===epoch;
+    const cleanOpen=!f.closedAt&&!f.targetObserved&&!f.failObserved&&f.status==='OPEN';
+    return cleanOpen&&f.date===signalDate&&f.dir===dir&&f.path===path&&ageOk&&priceOk&&epochOk;
+  });
+  if(!fam){
+    fam={id:familyId(),dir,path,date:signalDate,regimeAtBirth:regimeState.label,regimeEpoch:epoch,anchorPrice:signalPrice,startAt:signalTime,lastSignalAt:signalTime,signalIds:[],strikeIds:[],turnIds:[],executeIds:[],maxFavorable:0,maxAdverse:0,status:'OPEN',targetObserved:false,failObserved:false};
+    opportunityFamilies.push(fam);counters.familyRebirth=(counters.familyRebirth||0)+1;log('OPPORTUNITY FAMILY OPEN',{familyId:fam.id,dir,path,regime:fam.regimeAtBirth,regimeEpoch:epoch,anchorPrice:signalPrice,rebirthRule:'closed/outcome/date/epoch/90m/500pt'});
+  }
   fam.lastSignalAt=signalTime;if(signalId&&!fam.signalIds.includes(signalId))fam.signalIds.push(signalId);return fam;
 }
 function attachFamily(rec,path,timeField,priceField){const fam=ensureOpportunityFamily(rec.dir,path,rec.id,rec[timeField]||Date.now(),rec[priceField]||rec.entry||price);rec.familyId=fam.id;rec.familyPath=path;if(path==='CONTINUATION'&&!fam.strikeIds.includes(rec.id))fam.strikeIds.push(rec.id);if(path==='REVERSAL'&&!fam.turnIds.includes(rec.id))fam.turnIds.push(rec.id);return fam;}
@@ -642,7 +769,21 @@ function attachExecuteFamily(rec){let fam=rec.familyId?opportunityFamilies.find(
 function closeOppositeFamilies(newDir,at=Date.now()){if(!newDir)return;for(const f of opportunityFamilies){if(!f.closedAt&&f.dir!==newDir){f.closedAt=at;f.status='CLOSED_ON_REGIME_FLIP';}}}
 function updateFamilyMetrics(){
   const all=[...earlyStrikes,...turnAlerts,...survivors];
-  for(const fam of opportunityFamilies){let members=all.filter(x=>x.familyId===fam.id);fam.maxFavorable=Math.max(0,...members.map(x=>x.maxFavorableAfterStrike||x.maxFavorableAfterTurn||x.maxFavorableAfterExecute||0));fam.maxAdverse=Math.min(0,...members.map(x=>x.maxAdverseAfterStrike||x.maxAdverseAfterTurn||x.maxAdverseAfterExecute||0));fam.targetObserved=fam.maxFavorable>=500;fam.failObserved=fam.maxAdverse<=-500;if(fam.targetObserved)fam.status='TARGET_OBSERVED';else if(fam.failObserved)fam.status='FAIL_OBSERVED';else if(!fam.closedAt)fam.status='OPEN';}
+  for(const fam of opportunityFamilies){
+    const members=all.filter(x=>x.familyId===fam.id);
+    fam.maxFavorable=Math.max(0,...members.map(x=>x.maxFavorableAfterStrike||x.maxFavorableAfterTurn||x.maxFavorableAfterExecute||0));
+    fam.maxAdverse=Math.min(0,...members.map(x=>x.maxAdverseAfterStrike||x.maxAdverseAfterTurn||x.maxAdverseAfterExecute||0));
+    const targetTimes=members.map(x=>x.firstTargetAt||0).filter(Boolean).sort((a,b)=>a-b);
+    const failTimes=members.map(x=>x.firstFailAt||0).filter(Boolean).sort((a,b)=>a-b);
+    fam.firstTargetAt=targetTimes[0]||fam.firstTargetAt||0;fam.firstFailAt=failTimes[0]||fam.firstFailAt||0;
+    fam.targetObserved=!!fam.firstTargetAt||fam.maxFavorable>=500;fam.failObserved=!!fam.firstFailAt||fam.maxAdverse<=-500;
+    if(fam.targetObserved&&fam.failObserved){fam.outcomeOrder=(fam.firstTargetAt&&fam.firstFailAt&&fam.firstTargetAt<=fam.firstFailAt)?'TARGET_FIRST':'FAIL_FIRST';fam.status=fam.outcomeOrder==='TARGET_FIRST'?'TARGET_OBSERVED':'FAIL_OBSERVED';}
+    else if(fam.targetObserved)fam.status='TARGET_OBSERVED';
+    else if(fam.failObserved)fam.status='FAIL_OBSERVED';
+    else if(fam.invalidatedAt)fam.status='INVALIDATED';
+    else if(!fam.closedAt)fam.status='OPEN';
+    if((fam.targetObserved||fam.failObserved)&&!fam.closedAt)fam.closedAt=fam.firstTargetAt||fam.firstFailAt||Date.now();
+  }
 }
 function crossingStatus(targetAt,failAt,originAt,windowMin,elapsedMin){
   const end=originAt+windowMin*60000;
@@ -661,13 +802,14 @@ function reversalScoreModel(c,f,s,m,d,ageMin,move){
   const raw=Object.entries(comps).reduce((a,[k,v])=>k==='penalty'?a-v:a+v,0);return {score:Math.max(0,Math.min(100,Math.round(raw))),components:comps,alignedFlow:+alignedFlow.toFixed(4)};
 }
 function registerTurnAlert(c){
-  if(turnAlerts.some(x=>x.id===c.id))return;const rec={...c,turnTime:Date.now(),turnPrice:price,turnAgeMin:c.ageMin,turnMoveFromScoutPts:c.movePts,turnScore:c.turnScore,turnComponents:{...(c.turnComponents||{})},livePrice:price,moveFromTurnPts:0,maxFavorableAfterTurn:0,maxAdverseAfterTurn:0,tacticalStatus:'PENDING',extendedStatus:'PENDING',lifecycleStatus:'PENDING',fullExecuteConfirmed:false};attachFamily(rec,'REVERSAL','turnTime','turnPrice');turnAlerts.push(rec);c.turnAlert=true;c.turnAlertTime=rec.turnTime;c.turnAlertPrice=rec.turnPrice;c.turnAlertAgeMin=rec.turnAgeMin;c.familyId=rec.familyId;c.signalPath='REVERSAL';counters.turnAlert=(counters.turnAlert||0)+1;log(`TURN ALERT ${c.dir}`,{id:c.id,scoutEntry:c.entry,turnPrice:rec.turnPrice,ageMin:+rec.turnAgeMin.toFixed(2),moveFromScoutPts:+rec.turnMoveFromScoutPts.toFixed(0),turnScore:rec.turnScore,components:rec.turnComponents,familyId:rec.familyId});
+  if(turnAlerts.some(x=>x.id===c.id))return;const rec={...c,turnTime:Date.now(),turnPrice:price,turnAgeMin:c.ageMin,turnMoveFromScoutPts:c.movePts,turnScore:c.turnScore,turnComponents:{...(c.turnComponents||{})},livePrice:price,moveFromTurnPts:0,maxFavorableAfterTurn:0,maxAdverseAfterTurn:0,tacticalStatus:'PENDING',extendedStatus:'PENDING',lifecycleStatus:'PENDING',fullExecuteConfirmed:false,signalPath:'REVERSAL',liveAuthorityStatus:'ACTIVE',extensionStatus:'MISSION_PENDING'};attachFamily(rec,'REVERSAL','turnTime','turnPrice');turnAlerts.push(rec);c.turnAlert=true;c.turnAlertTime=rec.turnTime;c.turnAlertPrice=rec.turnPrice;c.turnAlertAgeMin=rec.turnAgeMin;c.familyId=rec.familyId;c.signalPath='REVERSAL';counters.turnAlert=(counters.turnAlert||0)+1;log(`TURN ALERT ${c.dir}`,{id:c.id,scoutEntry:c.entry,turnPrice:rec.turnPrice,ageMin:+rec.turnAgeMin.toFixed(2),moveFromScoutPts:+rec.turnMoveFromScoutPts.toFixed(0),turnScore:rec.turnScore,components:rec.turnComponents,familyId:rec.familyId,authority:'REVERSAL_AUTHORIZED'});
 }
 function updateTurnOutcome(x){
   if(!x||!x.turnPrice||!price)return x;x.livePrice=price;x.moveFromTurnPts=signedMoveFrom(x.dir,x.turnPrice,price);x.maxFavorableAfterTurn=Math.max(x.maxFavorableAfterTurn||0,x.moveFromTurnPts);x.maxAdverseAfterTurn=Math.min(x.maxAdverseAfterTurn||0,x.moveFromTurnPts);x.minutesSinceTurn=(Date.now()-x.turnTime)/60000;
-  if(x.moveFromTurnPts>=500&&!x.firstTargetAt)x.firstTargetAt=Date.now();if(x.moveFromTurnPts<=-500&&!x.firstFailAt)x.firstFailAt=Date.now();
-  const linked=survivors.find(s=>s.id===x.id);if(linked){x.fullExecuteConfirmed=true;x.executePrice=linked.executePrice;x.executeTime=linked.executeTime;}
-  x.tacticalStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.turnTime,TACTICAL_WINDOW_MIN,x.minutesSinceTurn);x.extendedStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.turnTime,EXTENDED_WINDOW_MIN,x.minutesSinceTurn);x.lifecycleStatus=lifecycleStatus(x.firstTargetAt,x.firstFailAt,x.minutesSinceTurn);return x;
+  if(x.moveFromTurnPts>=500&&!x.firstTargetAt){x.firstTargetAt=Date.now();counters.earlyTargetHit=(counters.earlyTargetHit||0)+1;}if(x.moveFromTurnPts<=-500&&!x.firstFailAt){x.firstFailAt=Date.now();counters.earlyFailedFirst=(counters.earlyFailedFirst||0)+1;}
+  const linked=survivors.find(s=>s.id===x.id);if(linked){x.fullExecuteConfirmed=true;x.executePrice=linked.executePrice;x.executeTime=linked.executeTime;x.liveAuthorityStatus='CONFIRMED';}
+  const liveCandidate=candidates.find(c=>c.id===x.id);if(liveCandidate&&liveCandidate.stage==='REJECT')invalidateLiveAuthority(liveCandidate,liveCandidate.poison);
+  x.tacticalStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.turnTime,TACTICAL_WINDOW_MIN,x.minutesSinceTurn);x.extendedStatus=crossingStatus(x.firstTargetAt,x.firstFailAt,x.turnTime,EXTENDED_WINDOW_MIN,x.minutesSinceTurn);x.lifecycleStatus=lifecycleStatus(x.firstTargetAt,x.firstFailAt,x.minutesSinceTurn);updateExtensionState(x,'moveFromTurnPts','maxFavorableAfterTurn');return x;
 }
 function spawnScouts(){let m=pathMetrics();if(!m||!price)return;let f=flowMetrics(), s=survivalMetrics();let longScore=0, shortScore=0, reasons=[];
  if(m.range>350&&m.eff>.28){ if(m.loc>.62){longScore+=.25;reasons.push('upper-location')} if(m.loc<.38){shortScore+=.25;reasons.push('lower-location')} }
@@ -679,51 +821,60 @@ function spawnScouts(){let m=pathMetrics();if(!m||!price)return;let f=flowMetric
  if(shortScore>.42&&!recentSame('SHORT'))makeScout('SHORT',reasons.join('+')||'hades-short-field',shortScore);
 }
 function classifyCandidate(c){
-  let ageMin=(Date.now()-c.scoutTime)/60000,move=pts(price,c.entry)*(c.dir==='LONG'?1:-1);c.ageMin=ageMin;c.movePts=move;if(c.stage==='REJECT')return;
-  if(c.stage!=='EXECUTE'&&ageMin>CANDIDATE_EXPIRY_MIN){c.stage='REJECT';c.poison='stale-survivor';c.expiredAt=c.expiredAt||Date.now();c.fullSurvivor=false;c.evidence=['expired-'+CANDIDATE_EXPIRY_MIN+'m'];c.execScore=-99;if(!c.staleLogged){counters.stale++;c.staleLogged=true;log(`STALE SURVIVOR KILL ${c.dir}`,{id:c.id,entry:c.entry,ageMin:+ageMin.toFixed(2),rule:'no-execute-after-79m'});}return;}
+  let ageMin=(Date.now()-c.scoutTime)/60000,move=pts(price,c.entry)*(c.dir==='LONG'?1:-1);c.ageMin=ageMin;c.movePts=move;c.bestMovePts=Math.max(c.bestMovePts||0,move);c.worstMovePts=Math.min(c.worstMovePts||0,move);if(c.stage==='REJECT')return;
+  if(c.stage!=='EXECUTE'&&ageMin>CANDIDATE_EXPIRY_MIN){c.stage='REJECT';c.poison='stale-survivor';c.expiredAt=c.expiredAt||Date.now();c.fullSurvivor=false;c.evidence=['expired-'+CANDIDATE_EXPIRY_MIN+'m'];c.execScore=-99;if(!c.staleLogged){counters.stale++;c.staleLogged=true;log(`STALE SURVIVOR KILL ${c.dir}`,{id:c.id,entry:c.entry,ageMin:+ageMin.toFixed(2),rule:'no-execute-after-79m'});}invalidateLiveAuthority(c,c.poison);return;}
   let f=flowMetrics(),s=survivalMetrics(),m=pathMetrics(),d=depthAuthority();c.evidence=[];c.poison=null;c.freshWindowLeftMin=Math.max(0,CANDIDATE_EXPIRY_MIN-ageMin);if(ageMin>CANDIDATE_CAUTION_MIN&&!c.ageWarned){c.ageWarned=true;log(`AGE CAUTION ${c.dir}`,{id:c.id,ageMin:+ageMin.toFixed(2),freshWindowLeftMin:+c.freshWindowLeftMin.toFixed(2)})}
-  if(move>=IMPACT_POINTS){c.impact=true;if(['SCOUT','ARMED_WATCH','EXHAUSTION_WATCH','TURN_ALERT'].includes(c.stage))c.stage='IMPACT';c.evidence.push('impact')}if(move>=IMPACT_POINTS+SECOND_PUNCH_POINTS){c.second=true;c.stage='SECOND_PUNCH';c.evidence.push('second-punch')}
+  if(move>=IMPACT_POINTS){c.impact=true;if(['SCOUT','ARMED_WATCH','BREAKOUT_WATCH','EXHAUSTION_WATCH','TURN_ALERT'].includes(c.stage))c.stage='IMPACT';c.evidence.push('impact')}if(move>=IMPACT_POINTS+SECOND_PUNCH_POINTS){c.second=true;c.stage='SECOND_PUNCH';c.evidence.push('second-punch')}
   let flowAligned=(c.dir==='LONG'?f.flow>.12:f.flow<-.12);if(flowAligned&&f.n>=8){c.siphon=true;c.evidence.push('siphon')}
   let survivalAligned=(c.dir==='LONG'?s.imb>.03||s.dImb>.02:s.imb<-.03||s.dImb<-.02);if(depthAligned(c.dir,d))survivalAligned=true;if(survivalAligned){c.survival=true;c.evidence.push(d&&!d.stale?'depth-survival':'siphon-survival')}
-  let sameMove=candidates.filter(x=>x.id!==c.id&&x.dir===c.dir&&(x.stage==='EXECUTE'||x.stage==='PROVISIONAL')&&Math.abs(pts(c.entry,x.entry))<250&&Math.abs(c.scoutTime-x.scoutTime)<90*60*1000).length>0;if(sameMove){c.poison='duplicate-fragment';if(!c.duplicateLogged){counters.duplicate++;c.duplicateLogged=true}}
+  let sameMove=candidates.filter(x=>x.id!==c.id&&x.dir===c.dir&&(x.stage==='EXECUTE'||x.stage==='PROVISIONAL'||x.stage==='PROVISIONAL_REVERSAL')&&Math.abs(pts(c.entry,x.entry))<250&&Math.abs(c.scoutTime-x.scoutTime)<90*60*1000).length>0;if(sameMove){c.poison='duplicate-fragment';if(!c.duplicateLogged){counters.duplicate++;c.duplicateLogged=true}}
   if(m){let spent=c.dir==='LONG'?pts(price,m.lo):pts(m.hi,price);if(spent>850){c.poison='no-runway';if(!c.runwayLogged){counters.runway++;c.runwayLogged=true}}if(m.eff>.55&&Math.abs(m.ret)>1100){c.poison='late-exhaustion';if(!c.lateLogged){counters.late++;c.lateLogged=true}}}
   if(c.impact&&!c.second&&ageMin>12){c.poison=c.poison||'failed-second-punch';if(!c.failedPunchLogged){counters.bait++;c.failedPunchLogged=true}}if(c.impact&&((c.dir==='LONG'&&f.flow<-.2)||(c.dir==='SHORT'&&f.flow>.2))){c.poison=c.poison||'inverse-flow-bait';if(!c.inverseBaitLogged){counters.bait++;c.inverseBaitLogged=true}}if(depthOpposes(c.dir,d)){c.poison=c.poison||'depth-opposition-bait';if(!c.depthBaitLogged){counters.bait++;c.depthBaitLogged=true}}
   c.independent=!c.poison&&!survivors.some(x=>x.date===c.date&&Math.abs(x.scoutTime-c.scoutTime)<79*60*1000&&Math.abs(pts(x.entry,c.entry))<350);
   const alignedFlowValue=c.dir==='LONG'?f.flow:-f.flow;const flowFloor=(alignedFlowValue>=.12&&f.n>=8)||c.impact;const contAligned=regimeAligned(c.dir)&&flowFloor&&c.survival&&!c.poison&&c.independent;if(contAligned){if(!c.continuationAlignedSince)c.continuationAlignedSince=Date.now();}else c.continuationAlignedSince=0;
-  const em=earlyScoreModel(c,f,s,m,d,ageMin,move);c.earlyScore=em.score;c.currentScore=em.score;c.earlyComponents=em.components;c.earlyAlignedFlow=em.alignedFlow;const contPersist=c.continuationAlignedSince&&(Date.now()-c.continuationAlignedSince)>=CONTINUATION_PERSIST_SEC*1000;const priorStrikeDuplicate=earlyStrikes.some(x=>x.id!==c.id&&x.dir===c.dir&&Date.now()-x.strikeTime<30*60*1000&&Math.abs(pts(c.entry,x.entry))<250);const earlyHardGate=ageMin<=EARLY_STRIKE_MAX_AGE_MIN&&move<=EARLY_STRIKE_MAX_SCOUT_MOVE&&move>=EARLY_STRIKE_MIN_SCOUT_MOVE&&!c.poison&&c.independent&&!priorStrikeDuplicate&&c.siphon&&c.survival&&regimeAligned(c.dir)&&flowFloor&&contPersist;
-  if(!c.earlyStrike&&earlyHardGate&&c.earlyScore>=EARLY_STRIKE_MIN_SCORE){c.stage='EARLY_STRIKE';registerEarlyStrike(c);}else if(!c.earlyStrike&&regimeAligned(c.dir)&&ageMin<=EARLY_STRIKE_MAX_AGE_MIN&&!c.poison&&c.independent&&c.earlyScore>=ARMED_WATCH_MIN_SCORE&&['SCOUT','IMPACT','ARMED_WATCH'].includes(c.stage)){c.stage='ARMED_WATCH';if(!c.armedLogged){c.armedLogged=true;log(`ARMED CONTINUATION ${c.dir}`,{id:c.id,entry:c.entry,ageMin:+ageMin.toFixed(2),movePts:+move.toFixed(0),currentScore:c.earlyScore,regime:regimeState.label,components:c.earlyComponents});}}
+  const em=earlyScoreModel(c,f,s,m,d,ageMin,move);c.earlyScore=em.score;c.currentScore=em.score;c.earlyComponents=em.components;c.earlyAlignedFlow=em.alignedFlow;const contPersist=c.continuationAlignedSince&&(Date.now()-c.continuationAlignedSince)>=CONTINUATION_PERSIST_SEC*1000;const priorStrikeDuplicate=earlyStrikes.some(x=>x.id!==c.id&&x.dir===c.dir&&x.liveAuthorityStatus!=='INVALIDATED'&&Date.now()-x.strikeTime<30*60*1000&&Math.abs(pts(c.entry,x.entry))<250);const quality=extendedEntryQuality(c,m,em);c.entryQuality=quality;
+  const earlyHardGate=ageMin<=EARLY_STRIKE_MAX_AGE_MIN&&move<=EARLY_STRIKE_MAX_SCOUT_MOVE&&move>=EARLY_STRIKE_MIN_SCOUT_MOVE&&!c.poison&&c.independent&&!priorStrikeDuplicate&&c.siphon&&c.survival&&regimeAligned(c.dir)&&flowFloor&&contPersist&&quality.pass;
+  if(!c.earlyStrike&&earlyHardGate&&c.earlyScore>=EARLY_STRIKE_MIN_SCORE){c.stage='EARLY_STRIKE';registerEarlyStrike(c);}else if(!c.earlyStrike&&quality.weakGeometry&&!quality.override&&regimeAligned(c.dir)&&ageMin<=EARLY_STRIKE_MAX_AGE_MIN&&!c.poison&&c.independent&&c.earlyScore>=EARLY_STRIKE_MIN_SCORE){c.stage='BREAKOUT_WATCH';if(!c.breakoutWatchLogged){c.breakoutWatchLogged=true;log(`EXTENDED BREAKOUT WATCH ${c.dir}`,{id:c.id,entry:c.entry,score:c.earlyScore,location:m?+m.loc.toFixed(2):null,runway:quality.runway,depth:quality.depth,requires:{score:V42_EXTENDED_STRIKE_SCORE,persistenceSec:V42_EXTENDED_PERSIST_SEC,flow:V42_EXTENDED_FLOW_FLOOR}});}}else if(!c.earlyStrike&&regimeAligned(c.dir)&&ageMin<=EARLY_STRIKE_MAX_AGE_MIN&&!c.poison&&c.independent&&c.earlyScore>=ARMED_WATCH_MIN_SCORE&&['SCOUT','IMPACT','ARMED_WATCH','BREAKOUT_WATCH'].includes(c.stage)){c.stage='ARMED_WATCH';if(!c.armedLogged){c.armedLogged=true;log(`ARMED CONTINUATION ${c.dir}`,{id:c.id,entry:c.entry,ageMin:+ageMin.toFixed(2),movePts:+move.toFixed(0),currentScore:c.earlyScore,regime:regimeState.label,components:c.earlyComponents,entryQuality:quality});}}
   const rm=reversalScoreModel(c,f,s,m,d,ageMin,move);c.turnScore=rm.score;c.turnComponents=rm.components;c.turnAlignedFlow=rm.alignedFlow;const turnAligned=counterRegime(c.dir)&&!c.poison&&c.independent&&((rm.components.flowFlip||0)>=7||(rm.components.depthFlip||0)>=7)&&((rm.components.exhaustion||0)+(rm.components.location||0)>=12);if(turnAligned){if(!c.turnAlignedSince)c.turnAlignedSince=Date.now();}else c.turnAlignedSince=0;const turnPersist=c.turnAlignedSince&&(Date.now()-c.turnAlignedSince)>=TURN_PERSIST_SEC*1000;
   if(!c.turnAlert&&turnPersist&&c.turnScore>=TURN_ALERT_MIN_SCORE&&ageMin<=45){c.stage='TURN_ALERT';registerTurnAlert(c);}else if(!c.earlyStrike&&!c.turnAlert&&counterRegime(c.dir)&&c.turnScore>=EXHAUSTION_WATCH_MIN_SCORE&&ageMin<=45&&!c.poison&&c.independent){c.stage='EXHAUSTION_WATCH';if(!c.exhaustionLogged){c.exhaustionLogged=true;counters.exhaustionWatch=(counters.exhaustionWatch||0)+1;log(`EXHAUSTION WATCH ${c.dir}`,{id:c.id,entry:c.entry,turnScore:c.turnScore,regime:regimeState.label,components:c.turnComponents});}}
-  let evScore=(c.impact?20:0)+(c.second?25:0)+(c.siphon?20:0)+(c.survival?20:0)+(c.independent?15:0)+Math.round(c.score*20);c.execScore=evScore;if(c.poison)c.execScore-=60;const cycleSurvivors=survivors.filter(x=>x.date===c.date).length,freshEnough=ageMin<=CANDIDATE_EXPIRY_MIN,provisionalReady=freshEnough&&c.execScore>=82&&c.impact&&c.survival&&c.independent&&!c.poison&&!c.second,executeReady=freshEnough&&c.execScore>=82&&c.impact&&c.second&&c.siphon&&c.survival&&c.independent&&!c.poison&&cycleSurvivors<4;
-  if(provisionalReady){c.stage=c.turnAlert?'PROVISIONAL_REVERSAL':'PROVISIONAL';if(!c.provisionalTime){c.provisionalTime=Date.now();log(`${c.turnAlert?'PROVISIONAL REVERSAL':'PROVISIONAL SURVIVOR'} ${c.dir}`,{id:c.id,entry:c.entry,earlyStrikePrice:c.earlyStrikePrice||null,turnAlertPrice:c.turnAlertPrice||null,score:c.execScore,evidence:c.evidence,waiting:'second-punch',freshWindowLeftMin:+c.freshWindowLeftMin.toFixed(2)})}}
-  if(executeReady){c.stage='EXECUTE';if(!survivors.some(x=>x.id===c.id)){const execPx=price;const signalPath=c.turnAlert?'REVERSAL':(c.earlyStrike?'CONTINUATION':(counterRegime(c.dir)?'REVERSAL':'CONFIRMATION'));const survivor={...c,signalPath,executeTime:Date.now(),executeAgeMin:ageMin,executePrice:execPx,executeMoveFromScoutPts:move,livePrice:price,moveFromScoutPts:move,moveFromExecutePts:0,maxFavorableAfterExecute:0,maxAdverseAfterExecute:0,tacticalStatus:'PENDING',extendedStatus:'PENDING',lifecycleStatus:'PENDING',fullSurvivor:true,expiryRule:'executed-within-79m'};attachExecuteFamily(survivor);updateOutcome(survivor);survivors.push(survivor);const er=earlyStrikes.find(x=>x.id===c.id);if(er){er.fullExecuteConfirmed=true;er.executePrice=execPx;er.executeTime=survivor.executeTime;er.executeAgeMin=ageMin;}const tr=turnAlerts.find(x=>x.id===c.id);if(tr){tr.fullExecuteConfirmed=true;tr.executePrice=execPx;tr.executeTime=survivor.executeTime;tr.executeAgeMin=ageMin;}closeOppositeFamilies(c.dir,survivor.executeTime);const a=actionLabel(survivor);log(`EXECUTE SURVIVOR ${c.dir}`,{id:c.id,path:signalPath,familyId:survivor.familyId,scoutEntry:c.entry,earlyStrikePrice:c.earlyStrikePrice||null,turnAlertPrice:c.turnAlertPrice||null,executePrice:execPx,score:c.execScore,evidence:c.evidence,ageMin:+ageMin.toFixed(2),moveFromScoutPts:+move.toFixed(0),ageStatus:a.ageText,priceStatus:a.priceText,action:a.text});}}
-  if(c.poison&&c.stage!=='EXECUTE')c.stage='REJECT';
+  if(c.earlyStrike){const broken=(c.earlyScore||0)<V42_INVALIDATE_SCORE||!regimeAligned(c.dir)||alignedFlowValue<-.12||move<=-V42_INVALIDATE_ADVERSE_POINTS;if(broken){if(!c.integrityLostSince)c.integrityLostSince=Date.now();}else c.integrityLostSince=0;if(c.integrityLostSince&&Date.now()-c.integrityLostSince>=V42_INVALIDATE_PERSIST_SEC*1000)c.poison=c.poison||'strike-integrity-collapse';}
+  if(c.turnAlert){const reversalBroken=(c.turnScore||0)<V42_INVALIDATE_SCORE||(!counterRegime(c.dir)&&regimeState.label!=='BALANCED')||move<=-V42_INVALIDATE_ADVERSE_POINTS;if(reversalBroken){if(!c.turnIntegrityLostSince)c.turnIntegrityLostSince=Date.now();}else c.turnIntegrityLostSince=0;if(c.turnIntegrityLostSince&&Date.now()-c.turnIntegrityLostSince>=V42_INVALIDATE_PERSIST_SEC*1000)c.poison=c.poison||'turn-integrity-collapse';}
+  let evScore=(c.impact?20:0)+(c.second?25:0)+(c.siphon?20:0)+(c.survival?20:0)+(c.independent?15:0)+Math.round(c.score*20);c.execScore=evScore;if(c.poison)c.execScore-=60;const cycleSurvivors=survivors.filter(x=>x.date===c.date&&x.actionableExecute!==false).length,freshEnough=ageMin<=CANDIDATE_EXPIRY_MIN,integrity=pathIntegrity(c,f,d,move);c.pathIntegrity=integrity;
+  const genericProvisional=freshEnough&&c.execScore>=82&&c.impact&&c.survival&&c.independent&&!c.poison&&!c.second;
+  const genericConfirmation=freshEnough&&c.execScore>=82&&c.impact&&c.second&&c.siphon&&c.survival&&c.independent&&!c.poison&&cycleSurvivors<4;
+  const provisionalReady=genericProvisional&&integrity.authority&&integrity.pass;
+  const executeReady=genericConfirmation&&integrity.authority&&integrity.pass;
+  if(genericProvisional&&!integrity.authority&&!c.pathBlockedLogged){c.pathBlockedLogged=true;counters.pathBlocked=(counters.pathBlocked||0)+1;log(`PATH AUTHORITY BLOCK ${c.dir}`,{id:c.id,reason:'No Early Strike or Turn Alert',execScore:c.execScore});}
+  if(provisionalReady){c.stage=integrity.path==='REVERSAL'?'PROVISIONAL_REVERSAL':'PROVISIONAL';if(!c.provisionalTime){c.provisionalTime=Date.now();log(`${integrity.path==='REVERSAL'?'PROVISIONAL REVERSAL':'PROVISIONAL SURVIVOR'} ${c.dir}`,{id:c.id,path:integrity.path,entry:c.entry,earlyStrikePrice:c.earlyStrikePrice||null,turnAlertPrice:c.turnAlertPrice||null,score:c.execScore,evidence:c.evidence,waiting:'second-punch',freshWindowLeftMin:+c.freshWindowLeftMin.toFixed(2),integrity});}}
+  if(genericConfirmation&&!executeReady){registerStructuralConfirmation(c,integrity);}
+  if(executeReady){c.stage='EXECUTE';if(!survivors.some(x=>x.id===c.id)){const execPx=price,signalPath=integrity.path;const survivor={...c,signalPath,executeTime:Date.now(),executeAgeMin:ageMin,executePrice:execPx,executeMoveFromScoutPts:move,livePrice:price,moveFromScoutPts:move,moveFromExecutePts:0,maxFavorableAfterExecute:0,maxAdverseAfterExecute:0,tacticalStatus:'PENDING',extendedStatus:'PENDING',lifecycleStatus:'PENDING',fullSurvivor:true,actionableExecute:true,pathIntegrityAtExecute:{...integrity},expiryRule:'executed-within-79m'};attachExecuteFamily(survivor);updateOutcome(survivor);survivors.push(survivor);const er=earlyStrikes.find(x=>x.id===c.id);if(er){er.fullExecuteConfirmed=true;er.executePrice=execPx;er.executeTime=survivor.executeTime;er.executeAgeMin=ageMin;er.liveAuthorityStatus='CONFIRMED';}const tr=turnAlerts.find(x=>x.id===c.id);if(tr){tr.fullExecuteConfirmed=true;tr.executePrice=execPx;tr.executeTime=survivor.executeTime;tr.executeAgeMin=ageMin;tr.liveAuthorityStatus='CONFIRMED';}const sr=structuralConfirmations.find(x=>x.id===c.id);if(sr){sr.status='PROMOTED_TO_EXECUTE';sr.promotedAt=survivor.executeTime;}closeOppositeFamilies(c.dir,survivor.executeTime);const a=actionLabel(survivor);log(`EXECUTE SURVIVOR ${c.dir}`,{id:c.id,path:signalPath,familyId:survivor.familyId,scoutEntry:c.entry,earlyStrikePrice:c.earlyStrikePrice||null,turnAlertPrice:c.turnAlertPrice||null,executePrice:execPx,score:c.execScore,evidence:c.evidence,ageMin:+ageMin.toFixed(2),moveFromScoutPts:+move.toFixed(0),ageStatus:a.ageText,priceStatus:a.priceText,action:a.text,pathIntegrity:integrity});}}
+  if(c.poison&&c.stage!=='EXECUTE'){c.stage='REJECT';invalidateLiveAuthority(c,c.poison);}
 }
 function evaluateLive(){updateRegime();spawnScouts();for(let c of candidates){if(c.stage!=='EXECUTE'&&c.stage!=='REJECT')classifyCandidate(c)}updateAllEarlyOutcomes();updateAllOutcomes();updateFamilyMetrics();candidates=candidates.filter(c=>Date.now()-c.scoutTime<2*3600*1000||c.stage==='EXECUTE').slice(-100)}
 function render(){
-  const r=updateRegime(),s=survivalMetrics(),f=flowMetrics(),d=s?s.depth:null,today=mytDate(),surv=survivors.filter(x=>x.date===today),esToday=earlyStrikes.filter(x=>x.date===today),taToday=turnAlerts.filter(x=>x.date===today),famToday=opportunityFamilies.filter(x=>x.date===today);
+  const r=updateRegime(),s=survivalMetrics(),f=flowMetrics(),d=s?s.depth:null,today=mytDate(),surv=survivors.filter(x=>x.date===today&&x.actionableExecute!==false),esToday=earlyStrikes.filter(x=>x.date===today),taToday=turnAlerts.filter(x=>x.date===today),famToday=opportunityFamilies.filter(x=>x.date===today);
   const bs=E('bookScore'),bd=E('bookDetail'),fs=E('flowScore'),fd=E('flowDetail');if(bs)bs.textContent=d&&!d.stale?(d.imbalance*100).toFixed(1)+'%':(s?s.imb.toFixed(3):'—');if(bd)bd.textContent=d&&!d.stale?`depth ${d.lean} • age ${d.ageSec}s • spread ${d.spreadPts.toFixed(1)}pt • micro ${d.microLeanPts.toFixed(1)}pt • pressure ${d.pressure.toFixed(0)}%`:(s?`fallback survival ${s.imb.toFixed(3)} • Δ ${s.dImb.toFixed(3)} • ${s.range.toFixed(0)}pt path`:'Waiting for BingX depth20');if(fs)fs.textContent=f.flow.toFixed(3);if(fd)fd.textContent=`${f.n} trades/90s • buy ${(f.buyRatio*100).toFixed(0)}% • sell ${(f.sellRatio*100).toFixed(0)}%`;
   E('survivorCount').textContent=`${surv.length} / 4`;E('survivorBar').style.width=Math.min(100,surv.length/4*100)+'%';E('familyCount').textContent=famToday.length;E('familyDetail').textContent=famToday.length?`${famToday.filter(x=>x.path==='CONTINUATION').length} continuation • ${famToday.filter(x=>x.path==='REVERSAL').length} reversal`:'No independent lifecycle family yet.';
   const display=r.displayLabel||r.label,regCls=display==='BULLISH'?'regimeBull':display==='BEARISH'?'regimeBear':display==='TRANSITION'?'regimeTransition':'regimeBalanced';E('regimeLabel').innerHTML=`<span class="tag ${regCls}">${display}</span>`;E('regimeScore').textContent=Math.round(Math.abs(r.score||0)*100);E('regimeBar').style.width=Math.min(100,r.confidence||0)+'%';const det=r.details||{};E('regimeDetail').textContent=`score ${(r.score||0).toFixed(3)} • 96m ${det.ret96||0}pt • 23m ${det.ret23||0}pt • flow ${det.flow||0}${r.pendingLabel?' • pending '+r.pendingLabel:''}`;
   E('earlyStrikeCount').textContent=esToday.length;E('activeEarlyDetail').textContent=esToday.length?`${esToday.filter(x=>x.lifecycleStatus==='PENDING').length} active • family-aware`:'Regime-aligned entries only.';E('turnAlertCount').textContent=taToday.length;E('activeTurnDetail').textContent=taToday.length?`${taToday.filter(x=>x.lifecycleStatus==='PENDING').length} active • ${taToday.filter(x=>x.fullExecuteConfirmed).length} confirmed`:'Counter-regime alerts require exhaustion plus a developing turn.';
   E('cDup').textContent=counters.duplicate;E('cRunway').textContent=counters.runway;E('cLate').textContent=counters.late;E('cBait').textContent=counters.bait;if(E('cStale'))E('cStale').textContent=counters.stale||0;
-  let eb=E('earlyStrikeBody');if(!esToday.length)eb.innerHTML='<tr><td colspan="6" class="small">No regime-aligned continuation strike yet.</td></tr>';else eb.innerHTML=esToday.slice(-8).map((x,i)=>{updateEarlyOutcome(x);const a=earlyActionLabel(x);return `<tr><td>${i+1}</td><td><span class="tag ${x.dir.toLowerCase()}">${x.dir}</span><span class="familyLine">${x.familyId||'—'}</span></td><td class="mono">Scout ${fmtPx(x.entry)}<span class="minirow">Strike ${fmtPx(x.strikePrice)}</span><span class="minirow">Live ${price?fmtPx(price):'—'}</span></td><td>Strike ${x.strikeScore??x.earlyScore}<br><span class="small">Current ${x.currentScore??x.earlyScore} • age ${(x.strikeAgeMin||0).toFixed(1)}m</span></td><td><div class="statusStack"><span class="tag ${a.cls}">${a.text}</span><span class="small">${(x.strikeMoveFromScoutPts||0).toFixed(0)}pt from scout</span></div></td><td><div class="statusStack">${x.fullExecuteConfirmed?'<span class="tag exec">FULL EXECUTE</span>':'<span class="tag pending">NOT CONFIRMED</span>'}<span class="small">${x.fullExecuteConfirmed?'thesis survived':'continuation evidence only'}</span></div></td></tr>`}).join('');
+  let eb=E('earlyStrikeBody');if(!esToday.length)eb.innerHTML='<tr><td colspan="6" class="small">No regime-aligned continuation strike yet.</td></tr>';else eb.innerHTML=esToday.slice(-8).map((x,i)=>{updateEarlyOutcome(x);const a=earlyActionLabel(x),invalid=x.liveAuthorityStatus==='INVALIDATED',authority=invalid?'<span class="tag invalid">INVALIDATED</span>':x.fullExecuteConfirmed?'<span class="tag exec">FULL EXECUTE</span>':'<span class="tag pending">LIVE AUTHORITY</span>';return `<tr><td>${i+1}</td><td><span class="tag ${x.dir.toLowerCase()}">${x.dir}</span><span class="familyLine">${x.familyId||'—'}</span></td><td class="mono">Scout ${fmtPx(x.entry)}<span class="minirow">Strike ${fmtPx(x.strikePrice)}</span><span class="minirow">Live ${price?fmtPx(price):'—'}</span></td><td>Strike ${x.strikeScore??x.earlyScore}<br><span class="small">Current ${x.currentScore??x.earlyScore} • age ${(x.strikeAgeMin||0).toFixed(1)}m</span></td><td><div class="statusStack"><span class="tag ${invalid?'invalid':a.cls}">${invalid?'STAND DOWN':a.text}</span><span class="small">${invalid?(x.invalidationReason||'integrity lost'):(x.strikeMoveFromScoutPts||0).toFixed(0)+'pt from scout'}</span></div></td><td><div class="statusStack">${authority}<span class="small">${x.extensionStatus||'MISSION_PENDING'}${x.extensionTier?' • '+x.extensionTier+'pt tier':''}</span></div></td></tr>`}).join('');
   let tab=E('turnAlertBody');if(!taToday.length)tab.innerHTML='<tr><td colspan="6" class="small">No reversal turn alert yet.</td></tr>';else tab.innerHTML=taToday.slice(-8).map((x,i)=>{updateTurnOutcome(x);return `<tr><td>${i+1}</td><td><span class="tag ${x.dir.toLowerCase()}">${x.dir}</span><span class="familyLine">${x.familyId||'—'}</span></td><td class="mono">Scout ${fmtPx(x.entry)}<span class="minirow">Turn ${fmtPx(x.turnPrice)}</span><span class="minirow">Live ${price?fmtPx(price):'—'}</span></td><td>${x.turnScore}/100<br><span class="small">age ${(x.turnAgeMin||0).toFixed(1)}m • move ${(x.turnMoveFromScoutPts||0).toFixed(0)}pt</span></td><td><div class="statusStack"><span class="tag turn">EARLY REVERSAL</span><span class="small">manage as turn risk</span></div></td><td><div class="statusStack">${x.fullExecuteConfirmed?'<span class="tag exec">TURN CONFIRMED</span>':'<span class="tag pending">AWAIT EXECUTE</span>'}<span class="small">${x.fullExecuteConfirmed?'second punch survived':'not full confirmation'}</span></div></td></tr>`}).join('');
-  const signals=[...esToday.map(x=>({...x,_kind:'CONT'})),...taToday.map(x=>({...x,_kind:'TURN'}))].sort((a,b)=>(a.strikeTime||a.turnTime)-(b.strikeTime||b.turnTime));let eob=E('earlyOutcomeBody');if(!signals.length)eob.innerHTML='<tr><td colspan="6" class="small">No tracked signal outcomes yet.</td></tr>';else eob.innerHTML=signals.slice(-12).map((x,i)=>{const src=x._kind==='CONT'?earlyStrikes.find(y=>y.id===x.id):turnAlerts.find(y=>y.id===x.id);x._kind==='CONT'?updateEarlyOutcome(src):updateTurnOutcome(src);return `<tr><td>${i+1}</td><td><div class="auditOutcomeStack auditSignalStack"><span class="tag ${src.dir.toLowerCase()}">${src.dir}</span><span class="small">${x._kind}</span></div></td><td><div class="auditOutcomeStack"><span class="tag ${outcomeClass(src.tacticalStatus)}">${src.tacticalStatus}</span><span class="small">79m</span></div></td><td><div class="auditOutcomeStack"><span class="tag ${outcomeClass(src.extendedStatus)}">${src.extendedStatus}</span><span class="small">245m</span></div></td><td><div class="auditOutcomeStack"><span class="tag ${outcomeClass(src.lifecycleStatus)}">${src.lifecycleStatus}</span><span class="small">MFE ${(src.maxFavorableAfterStrike||src.maxFavorableAfterTurn||0).toFixed(0)} • MAE ${(src.maxAdverseAfterStrike||src.maxAdverseAfterTurn||0).toFixed(0)}</span></div></td><td>${src.familyId||'—'}<br><span class="small">${src.targetTimeInferred||src.failTimeInferred?'legacy time inferred':'exact live order'}</span></td></tr>`}).join('');
+  const signals=[...esToday.map(x=>({...x,_kind:'CONT'})),...taToday.map(x=>({...x,_kind:'TURN'}))].sort((a,b)=>(a.strikeTime||a.turnTime)-(b.strikeTime||b.turnTime));let eob=E('earlyOutcomeBody');if(!signals.length)eob.innerHTML='<tr><td colspan="6" class="small">No tracked signal outcomes yet.</td></tr>';else eob.innerHTML=signals.slice(-12).map((x,i)=>{const src=x._kind==='CONT'?earlyStrikes.find(y=>y.id===x.id):turnAlerts.find(y=>y.id===x.id);x._kind==='CONT'?updateEarlyOutcome(src):updateTurnOutcome(src);return `<tr><td>${i+1}</td><td><div class="auditOutcomeStack auditSignalStack"><span class="tag ${src.dir.toLowerCase()}">${src.dir}</span><span class="small">${x._kind}</span></div></td><td><div class="auditOutcomeStack"><span class="tag ${outcomeClass(src.tacticalStatus)}">${src.tacticalStatus}</span><span class="small">79m</span></div></td><td><div class="auditOutcomeStack"><span class="tag ${outcomeClass(src.extendedStatus)}">${src.extendedStatus}</span><span class="small">245m</span></div></td><td><div class="auditOutcomeStack"><span class="tag ${outcomeClass(src.lifecycleStatus)}">${src.lifecycleStatus}</span><span class="small">MFE ${(src.maxFavorableAfterStrike||src.maxFavorableAfterTurn||0).toFixed(0)} • MAE ${(src.maxAdverseAfterStrike||src.maxAdverseAfterTurn||0).toFixed(0)}${src.extensionTier?' • EXT '+src.extensionTier:''}</span></div></td><td>${src.familyId||'—'}<br><span class="small">${src.targetTimeInferred||src.failTimeInferred?'legacy time inferred':'exact live order'}</span></td></tr>`}).join('');
   const os=outcomeSummary(),eos=earlyOutcomeSummary();E('outcomePending').textContent=os.pending+eos.pending;const bests=[os.best,eos.best].filter(Boolean);const best=bests.sort((a,b)=>(b.maxFavorableAfterExecute||b.maxFavorableAfterStrike||b.maxFavorableAfterTurn||0)-(a.maxFavorableAfterExecute||a.maxFavorableAfterStrike||a.maxFavorableAfterTurn||0))[0];E('bestAfterExecute').textContent=best?((best.maxFavorableAfterExecute||best.maxFavorableAfterStrike||best.maxFavorableAfterTurn||0).toFixed(0)+'pt'):'—';E('bestAfterDetail').textContent=best?`${best.dir} • ${best.familyId||'no family'} • lifecycle ${best.lifecycleStatus||'PENDING'}`:'No tracked signal yet.';
   let sb=E('survivorBody');if(!surv.length)sb.innerHTML='<tr><td colspan="6" class="small">No FULL survivor yet.</td></tr>';else sb.innerHTML=surv.slice(-6).map((x,i)=>{updateOutcome(x);const a=actionLabel(x);return `<tr><td>${i+1}</td><td><span class="tag ${x.dir.toLowerCase()}">${x.dir}</span><span class="familyLine">${x.familyId||'—'} • ${x.signalPath||'CONFIRMATION'}</span></td><td class="mono">Scout ${fmtPx(x.entry)}<span class="minirow">Exec ${fmtPx(x.executePrice)}</span><span class="minirow">Live ${price?fmtPx(price):'—'}</span></td><td>${(x.moveFromScoutPts||0).toFixed(0)}pt scout<br><span class="small">${(x.moveFromExecutePts||0).toFixed(0)}pt after EXECUTE</span></td><td><div class="statusStack"><span class="tag ${a.cls}">${a.text}</span><span class="tag ${a.ageCls} compactStatus">${a.ageText}</span><span class="tag ${a.priceCls} compactStatus">${a.priceText}</span></div></td><td><div class="statusStack"><span class="tag exec">FULL EXECUTE</span><span class="small">score ${x.execScore||0} • age ${(x.executeAgeMin||0).toFixed(1)}m</span></div></td></tr>`}).join('');
-  let fb=E('familyBody');if(!famToday.length)fb.innerHTML='<tr><td colspan="6" class="small">No opportunity family yet.</td></tr>';else fb.innerHTML=famToday.slice(-12).map((x,i)=>`<tr><td>${i+1}</td><td>${x.id}<br><span class="small">${x.dir} • born ${x.regimeAtBirth}</span></td><td><span class="tag ${x.path==='REVERSAL'?'turn':'strike'}">${x.path}</span></td><td>${(x.signalIds||[]).length}<br><span class="small">${(x.executeIds||[]).length} execute</span></td><td>${(x.maxFavorable||0).toFixed(0)} / ${(x.maxAdverse||0).toFixed(0)}pt</td><td><span class="tag ${x.status==='TARGET_OBSERVED'?'win':x.status==='FAIL_OBSERVED'?'fail':'pending'}">${x.status}</span></td></tr>`).join('');
-  let sorted=candidates.slice().sort((a,b)=>Math.max(b.execScore||0,b.earlyScore||0,b.turnScore||0)-Math.max(a.execScore||0,a.earlyScore||0,a.turnScore||0)).slice(0,20),tb=E('suspectBody');if(!sorted.length)tb.innerHTML='<tr><td colspan="5" class="small">No suspects yet.</td></tr>';else tb.innerHTML=sorted.map((c,i)=>{let cls=c.poison==='stale-survivor'?'stale':c.stage==='REJECT'?'dead':c.stage==='EXECUTE'?'exec':c.stage.includes('TURN')||c.stage.includes('EXHAUSTION')?'turn':c.stage==='EARLY_STRIKE'?'strike':c.stage==='ARMED_WATCH'?'armed':'wait';let path=c.turnAlert||counterRegime(c.dir)?'REVERSAL':regimeAligned(c.dir)?'CONTINUATION':'UNRESOLVED';return `<tr><td>${i+1}</td><td><span class="tag ${c.dir.toLowerCase()}">${c.dir}</span><br><span class="small mono">${fmtPx(c.entry||0)}</span></td><td>${(c.ageMin||0).toFixed(1)}m<br><span class="small">fresh ${(c.freshWindowLeftMin||0).toFixed(1)}m</span></td><td><span class="tag ${cls}">${c.stage}</span><br><span class="small">${path}</span></td><td>${(c.evidence||[]).join('+')}${c.poison?'<br><span class="bad">'+c.poison+'</span>':''}<br><span class="small">exec ${c.execScore||0} • cont ${c.earlyScore||0} • turn ${c.turnScore||0}</span></td></tr>`}).join('');
+  let fb=E('familyBody');if(!famToday.length)fb.innerHTML='<tr><td colspan="6" class="small">No opportunity family yet.</td></tr>';else fb.innerHTML=famToday.slice(-12).map((x,i)=>`<tr><td>${i+1}</td><td>${x.id}<br><span class="small">${x.dir} • born ${x.regimeAtBirth}</span></td><td><span class="tag ${x.path==='REVERSAL'?'turn':'strike'}">${x.path}</span></td><td>${(x.signalIds||[]).length}<br><span class="small">${(x.executeIds||[]).length} execute${x.legacyUnauthorized?' • legacy unauthorized':''}</span></td><td>${(x.maxFavorable||0).toFixed(0)} / ${(x.maxAdverse||0).toFixed(0)}pt</td><td><span class="tag ${x.status==='TARGET_OBSERVED'?'win':x.status==='FAIL_OBSERVED'?'fail':x.status==='INVALIDATED'?'invalid':'pending'}">${x.status}</span></td></tr>`).join('');
+  let sorted=candidates.slice().sort((a,b)=>Math.max(b.execScore||0,b.earlyScore||0,b.turnScore||0)-Math.max(a.execScore||0,a.earlyScore||0,a.turnScore||0)).slice(0,20),tb=E('suspectBody');if(!sorted.length)tb.innerHTML='<tr><td colspan="5" class="small">No suspects yet.</td></tr>';else tb.innerHTML=sorted.map((c,i)=>{let cls=c.poison==='stale-survivor'?'stale':c.stage==='REJECT'?'dead':c.stage==='EXECUTE'?'exec':c.stage.includes('TURN')||c.stage.includes('EXHAUSTION')?'turn':c.stage==='EARLY_STRIKE'?'strike':c.stage==='BREAKOUT_WATCH'?'breakout':c.stage==='STRUCTURAL_CONFIRMATION'?'structural':c.stage==='ARMED_WATCH'?'armed':'wait';let path=c.turnAlert||counterRegime(c.dir)?'REVERSAL':regimeAligned(c.dir)?'CONTINUATION':'UNRESOLVED';return `<tr><td>${i+1}</td><td><span class="tag ${c.dir.toLowerCase()}">${c.dir}</span><br><span class="small mono">${fmtPx(c.entry||0)}</span></td><td>${(c.ageMin||0).toFixed(1)}m<br><span class="small">fresh ${(c.freshWindowLeftMin||0).toFixed(1)}m</span></td><td><span class="tag ${cls}">${c.stage}</span><br><span class="small">${path}</span></td><td>${(c.evidence||[]).join('+')}${c.poison?'<br><span class="bad">'+c.poison+'</span>':''}<br><span class="small">exec ${c.execScore||0} • cont ${c.earlyScore||0} • turn ${c.turnScore||0}</span></td></tr>`}).join('');
 }
 function safeEvidenceClone(obj){
   try{return JSON.parse(JSON.stringify(obj))}catch(e){return String(obj)}
 }
-function evidenceFilename(){return `virgo_v41_10_evidence_identity_seal_${Date.now()}.json`}
-function makeEvidencePayload(){updateFamilyMetrics();return {
- engine:'VIRGO_500_V41_10_EVIDENCE_IDENTITY_SEAL',created:nowIso(),symbol:'1000PEPEUSDT',feed:'HADES vMaster price/trade stack + isolated OMEN BingX depth20 authority only',depthChannel:BINGX_DEPTH_CHANNEL,depthState:safeEvidenceClone(depthState),lastDepthAt,lastDepthAgeSec:lastDepthAt?Math.floor((Date.now()-lastDepthAt)/1000):null,livePrice:price,lastSource,lastTickAt:lastTs,cycleDay:mytDate(),
- regimeState:safeEvidenceClone(regimeState),survivorCountToday:survivors.filter(x=>x.date===mytDate()).length,opportunityFamilyCountToday:opportunityFamilies.filter(x=>x.date===mytDate()).length,continuationStrikeCountToday:earlyStrikes.filter(x=>x.date===mytDate()).length,turnAlertCountToday:turnAlerts.filter(x=>x.date===mytDate()).length,
- rules:{continuation:'Regime aligned + score >=70 + aligned flow floor + survival + 12s persistence + age<=45m + move 20..175pt',reversal:'Counter-regime exhaustion watch >=58; turn alert >=72 with exhaustion/location plus flow or depth flip and 12s persistence',fullExecute:'impact + second punch + siphon + survival + independence + no poison + age<=79m',tacticalWindowMin:TACTICAL_WINDOW_MIN,extendedWindowMin:EXTENDED_WINDOW_MIN,lifecycleWindowMin:LIFECYCLE_WINDOW_MIN},
- depthSubscription:safeEvidenceClone(depthSubscription),earlyStrikes:safeEvidenceClone(earlyStrikes),turnAlerts:safeEvidenceClone(turnAlerts),signalOutcomeSummary:safeEvidenceClone(earlyOutcomeSummary()),survivors:safeEvidenceClone(survivors),executeOutcomeSummary:safeEvidenceClone(outcomeSummary()),opportunityFamilies:safeEvidenceClone(opportunityFamilies),candidates:safeEvidenceClone(candidates),evidence:safeEvidenceClone(evidence),counters:safeEvidenceClone(counters),guardian:safeEvidenceClone(SHEOL_STREAM_GUARDIAN),siphon:{lastTradeAt:SIPH.lastTradeAt,tradeAgeSec:SIPH.lastTradeAt?Math.floor((Date.now()-SIPH.lastTradeAt)/1000):null,ratioV:SIPH.ratioV,ratioN:SIPH.ratioN,buckets:SIPH.buckets?SIPH.buckets.size:0},candleCount:candles.length,candleContinuity:{mode:VIRGO_CANDLE_CONTINUITY_MODE,store:VIRGO_CANDLE_STORE,retainedBars:candles.length,restoredBars:virgoCandleContinuity.restored,lastSavedAt:virgoCandleContinuity.lastSavedAt,lastMergedAt:virgoCandleContinuity.lastMergedAt,lastBootstrapRoute:virgoCandleContinuity.lastBootstrapRoute,lastError:virgoCandleContinuity.lastError,saveCount:virgoCandleContinuity.saveCount},note:'V41.10 preserves V41.9 top pull-refresh and bottom overscroll seal, V41.7 candle continuity, and V41.2 ledger geometry. This build corrects evidence filename, engine identity, page title, footer, and startup log only; trading logic is unchanged.'};}
+function evidenceFilename(){return `virgo_v42_integrity_extension_${Date.now()}.json`}
+function makeEvidencePayload(){updateFamilyMetrics();refreshOutcomeCounters();const today=mytDate();return {
+ engine:'VIRGO_500_V42_INTEGRITY_AND_EXTENSION_LAYER',created:nowIso(),symbol:'1000PEPEUSDT',feed:'HADES vMaster price/trade stack + isolated OMEN BingX depth20 authority only',depthChannel:BINGX_DEPTH_CHANNEL,depthState:safeEvidenceClone(depthState),lastDepthAt,lastDepthAgeSec:lastDepthAt?Math.floor((Date.now()-lastDepthAt)/1000):null,livePrice:price,lastSource,lastTickAt:lastTs,cycleDay:today,
+ regimeState:safeEvidenceClone(regimeState),survivorCountToday:survivors.filter(x=>x.date===today&&x.actionableExecute!==false).length,opportunityFamilyCountToday:opportunityFamilies.filter(x=>x.date===today).length,continuationStrikeCountToday:earlyStrikes.filter(x=>x.date===today).length,turnAlertCountToday:turnAlerts.filter(x=>x.date===today).length,
+ rules:{continuation:'Regime aligned + score >=70 + aligned flow + survival + 12s persistence + age<=45m + move 20..175pt; extended weak geometry requires score>=85, 24s persistence, flow>=0.25',reversal:'Mandatory EXHAUSTION WATCH → TURN ALERT >=72 with 12s persistence; reversal cannot reach FULL EXECUTE without Turn Alert authority',fullExecute:'Path authority + path health + impact + second punch + siphon + survival + independence + no poison + age<=79m + move<=175pt',invalidation:'Live authority invalidates after 8s of score/regime/flow/adverse collapse; research outcome remains tracked',familyRebirth:'New family after outcome/closure/date/epoch change or >90m / >=500pt separation',extensionTiers:V42_EXTENSION_TIERS,tacticalWindowMin:TACTICAL_WINDOW_MIN,extendedWindowMin:EXTENDED_WINDOW_MIN,lifecycleWindowMin:LIFECYCLE_WINDOW_MIN},
+ depthSubscription:safeEvidenceClone(depthSubscription),earlyStrikes:safeEvidenceClone(earlyStrikes),turnAlerts:safeEvidenceClone(turnAlerts),signalOutcomeSummary:safeEvidenceClone(earlyOutcomeSummary()),survivors:safeEvidenceClone(survivors),structuralConfirmations:safeEvidenceClone(structuralConfirmations),executeOutcomeSummary:safeEvidenceClone(outcomeSummary()),opportunityFamilies:safeEvidenceClone(opportunityFamilies),candidates:safeEvidenceClone(candidates),evidence:safeEvidenceClone(evidence),counters:safeEvidenceClone(counters),guardian:safeEvidenceClone(SHEOL_STREAM_GUARDIAN),siphon:{lastTradeAt:SIPH.lastTradeAt,tradeAgeSec:SIPH.lastTradeAt?Math.floor((Date.now()-SIPH.lastTradeAt)/1000):null,ratioV:SIPH.ratioV,ratioN:SIPH.ratioN,buckets:SIPH.buckets?SIPH.buckets.size:0},candleCount:candles.length,candleContinuity:{mode:VIRGO_CANDLE_CONTINUITY_MODE,store:VIRGO_CANDLE_STORE,retainedBars:candles.length,restoredBars:virgoCandleContinuity.restored,lastSavedAt:virgoCandleContinuity.lastSavedAt,lastMergedAt:virgoCandleContinuity.lastMergedAt,lastBootstrapRoute:virgoCandleContinuity.lastBootstrapRoute,lastError:virgoCandleContinuity.lastError,saveCount:virgoCandleContinuity.saveCount},note:'V42 preserves V41.10 mobile top-refresh/bottom-seal, V41.7 candle continuity, V41.2 ledger geometry, feeds, and continuation thresholds. It adds path authority, actionable integrity, extended-entry quality, live invalidation, family rebirth, regime hysteresis, corrected counters, and extension tiers.'};}
 function evidenceJson(){return JSON.stringify(makeEvidencePayload(),null,2)}
 function setExportStatus(msg,kind){let el=E('exportStatus');if(el){el.textContent=msg;el.className='small '+(kind||'')}}
 function showExportBox(json,msg){let box=E('exportBox'),txt=E('exportText');if(txt)txt.value=json;if(box)box.classList.add('show');setExportStatus(msg||'Evidence export ready.','ok')}
@@ -742,10 +893,10 @@ function downloadEvidenceJson(json,filename){
 async function shareEvidenceJson(json,filename){
   const file=new File([json],filename,{type:'application/json'});
   if(navigator.canShare&&navigator.canShare({files:[file]})){
-    await navigator.share({files:[file],title:'VIRGO V41 Evidence',text:'VIRGO V41 dual-path regime lifecycle evidence JSON'});
+    await navigator.share({files:[file],title:'VIRGO V42 Evidence',text:'VIRGO V42 integrity and extension evidence JSON'});
     return true;
   }
-  if(navigator.share){await navigator.share({title:'VIRGO V41 Evidence',text:json.slice(0,9000)});return true;}
+  if(navigator.share){await navigator.share({title:'VIRGO V42 Evidence',text:json.slice(0,9000)});return true;}
   return false;
 }
 async function copyEvidenceJson(json){
@@ -761,7 +912,7 @@ async function exportEvidence(ev){
     filename=evidenceFilename();
     showExportBox(json,`Evidence prepared: ${filename}`);
     downloadEvidenceJson(json,filename);
-    log('evidence export prepared',{filename,bytes:json.length,survivors:survivors.filter(x=>x.date===mytDate()).length,continuationStrikes:earlyStrikes.filter(x=>x.date===mytDate()).length,turnAlerts:turnAlerts.filter(x=>x.date===mytDate()).length,families:opportunityFamilies.filter(x=>x.date===mytDate()).length,provisional:candidates.filter(x=>x.date===mytDate()&&(x.stage==='PROVISIONAL'||x.stage==='PROVISIONAL_REVERSAL')).length,candidates:candidates.length});
+    log('evidence export prepared',{filename,bytes:json.length,survivors:survivors.filter(x=>x.date===mytDate()).length,continuationStrikes:earlyStrikes.filter(x=>x.date===mytDate()).length,turnAlerts:turnAlerts.filter(x=>x.date===mytDate()).length,families:opportunityFamilies.filter(x=>x.date===mytDate()).length,provisional:candidates.filter(x=>x.date===mytDate()&&(x.stage==='PROVISIONAL'||x.stage==='PROVISIONAL_REVERSAL'||x.stage==='STRUCTURAL_CONFIRMATION')).length,candidates:candidates.length});
     setExportStatus(`Download triggered. If iPhone blocks it, use Share / Save or Copy JSON below. File: ${filename}`,'ok');
   }catch(err){
     const msg='Export failed: '+(err&&err.message?err.message:String(err));
@@ -775,10 +926,11 @@ function wireEvidenceExportButtons(){
   if(cp)cp.onclick=async()=>{try{const json=E('exportText')&&E('exportText').value?E('exportText').value:evidenceJson();await copyEvidenceJson(json);setExportStatus('Evidence JSON copied.','ok')}catch(e){setExportStatus('Copy failed. Select the text manually.','bad')}};
   if(cl)cl.onclick=()=>{const box=E('exportBox');if(box)box.classList.remove('show')};
 }
-function clearSession(){candidates=[];earlyStrikes=[];turnAlerts=[];survivors=[];opportunityFamilies=[];evidence=[];regimeState={label:'BALANCED',rawLabel:'BALANCED',score:0,confidence:0,epoch:0,changedAt:Date.now(),pendingLabel:null,pendingSince:0,details:{}};counters={duplicate:0,runway:0,late:0,bait:0,stale:0,targetHit:0,failedFirst:0,weakFollow:0,earlyStrike:0,turnAlert:0,exhaustionWatch:0,earlyTargetHit:0,earlyFailedFirst:0,earlyWeak:0,regimeFlip:0};localStorage.removeItem('virgo_v41_dual_path_regime_lifecycle');localStorage.removeItem('virgo_v40_early_strike_evidence');log('session cleared');render()}
+function clearSession(){candidates=[];earlyStrikes=[];turnAlerts=[];survivors=[];structuralConfirmations=[];opportunityFamilies=[];evidence=[];regimeState={label:'BALANCED',rawLabel:'BALANCED',score:0,confidence:0,epoch:0,changedAt:Date.now(),pendingLabel:null,pendingSince:0,details:{}};counters={duplicate:0,runway:0,late:0,bait:0,stale:0,targetHit:0,failedFirst:0,weakFollow:0,earlyStrike:0,turnAlert:0,exhaustionWatch:0,earlyTargetHit:0,earlyFailedFirst:0,earlyWeak:0,regimeFlip:0,structuralOnly:0,invalidatedStrike:0,familyRebirth:0,extensionTier:0,pathBlocked:0};localStorage.removeItem('virgo_v41_dual_path_regime_lifecycle');localStorage.removeItem('virgo_v40_early_strike_evidence');log('session cleared');render()}
 setInterval(()=>{if(lastTs&&Date.now()-lastTs>15000)setStatus('STALE / RECONNECT')},5000);
-setInterval(()=>{try{localStorage.setItem('virgo_v41_dual_path_regime_lifecycle',JSON.stringify({survivors,earlyStrikes,turnAlerts,opportunityFamilies,candidates,evidence,counters,regimeState}))}catch(e){}},10000);
-try{let saved=JSON.parse(localStorage.getItem('virgo_v41_dual_path_regime_lifecycle')||'null'),legacy=false;if(!saved){saved=JSON.parse(localStorage.getItem('virgo_v40_early_strike_evidence')||'null');legacy=!!saved;}if(saved){survivors=saved.survivors||[];earlyStrikes=saved.earlyStrikes||[];turnAlerts=saved.turnAlerts||[];opportunityFamilies=saved.opportunityFamilies||[];candidates=saved.candidates||[];evidence=saved.evidence||[];regimeState={...regimeState,...(saved.regimeState||{})};counters={duplicate:0,runway:0,late:0,bait:0,stale:0,targetHit:0,failedFirst:0,weakFollow:0,earlyStrike:0,turnAlert:0,exhaustionWatch:0,earlyTargetHit:0,earlyFailedFirst:0,earlyWeak:0,regimeFlip:0,...(saved.counters||{})};if(legacy){for(const x of earlyStrikes){x.signalPath=x.signalPath||'LEGACY_EARLY';x.strikeScore=x.strikeScore??x.earlyScore;x.currentScore=x.currentScore??x.earlyScore;attachFamily(x,'LEGACY_EARLY','strikeTime','strikePrice');}for(const x of survivors){x.signalPath=x.signalPath||'LEGACY_EXECUTE';attachExecuteFamily(x);}log('migrated V40 local evidence into V41',{earlyStrikes:earlyStrikes.length,survivors:survivors.length});}else log('restored V41 local evidence')}}catch(e){log('restore failed',{error:e.message})}
+setInterval(()=>{try{localStorage.setItem('virgo_v41_dual_path_regime_lifecycle',JSON.stringify({survivors,earlyStrikes,turnAlerts,structuralConfirmations,opportunityFamilies,candidates,evidence,counters,regimeState}))}catch(e){}},10000);
+try{let saved=JSON.parse(localStorage.getItem('virgo_v41_dual_path_regime_lifecycle')||'null'),legacy=false;if(!saved){saved=JSON.parse(localStorage.getItem('virgo_v40_early_strike_evidence')||'null');legacy=!!saved;}if(saved){survivors=saved.survivors||[];earlyStrikes=saved.earlyStrikes||[];turnAlerts=saved.turnAlerts||[];structuralConfirmations=saved.structuralConfirmations||[];opportunityFamilies=saved.opportunityFamilies||[];candidates=saved.candidates||[];evidence=saved.evidence||[];regimeState={...regimeState,...(saved.regimeState||{})};counters={duplicate:0,runway:0,late:0,bait:0,stale:0,targetHit:0,failedFirst:0,weakFollow:0,earlyStrike:0,turnAlert:0,exhaustionWatch:0,earlyTargetHit:0,earlyFailedFirst:0,earlyWeak:0,regimeFlip:0,structuralOnly:0,invalidatedStrike:0,familyRebirth:0,extensionTier:0,pathBlocked:0,...(saved.counters||{})};if(legacy){for(const x of earlyStrikes){x.signalPath=x.signalPath||'LEGACY_EARLY';x.strikeScore=x.strikeScore??x.earlyScore;x.currentScore=x.currentScore??x.earlyScore;attachFamily(x,'LEGACY_EARLY','strikeTime','strikePrice');}for(const x of survivors){x.signalPath=x.signalPath||'LEGACY_EXECUTE';attachExecuteFamily(x);}log('migrated V40 local evidence into V41',{earlyStrikes:earlyStrikes.length,survivors:survivors.length});}else log('restored V41 local evidence')}}catch(e){log('restore failed',{error:e.message})}
+try{repairV42FamilyHistory();}catch(e){log('V42 family repair failed',{error:e.message})}
 function sealVirgoCandleContinuity(reason){sealVirgoCandlesNow(reason)}
 window.addEventListener('pagehide',()=>sealVirgoCandleContinuity('pagehide'));
 window.addEventListener('beforeunload',()=>sealVirgoCandleContinuity('beforeunload'));
